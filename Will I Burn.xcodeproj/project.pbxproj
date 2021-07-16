@@ -13,6 +13,7 @@
 		5EDF61EA26A176E00093AA53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EDF61E826A176E00093AA53 /* Main.storyboard */; };
 		5EDF61EC26A176E20093AA53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EDF61EB26A176E20093AA53 /* Assets.xcassets */; };
 		5EDF61EF26A176E20093AA53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EDF61ED26A176E20093AA53 /* LaunchScreen.storyboard */; };
+		5EDF61F726A178890093AA53 /* SkinType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDF61F626A178890093AA53 /* SkinType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		5EDF61EB26A176E20093AA53 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5EDF61EE26A176E20093AA53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5EDF61F026A176E20093AA53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5EDF61F626A178890093AA53 /* SkinType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				5EDF61EB26A176E20093AA53 /* Assets.xcassets */,
 				5EDF61ED26A176E20093AA53 /* LaunchScreen.storyboard */,
 				5EDF61F026A176E20093AA53 /* Info.plist */,
+				5EDF61F626A178890093AA53 /* SkinType.swift */,
 			);
 			path = "Will I Burn";
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EDF61F726A178890093AA53 /* SkinType.swift in Sources */,
 				5EDF61E726A176E00093AA53 /* ViewController.swift in Sources */,
 				5EDF61E326A176E00093AA53 /* AppDelegate.swift in Sources */,
 				5EDF61E526A176E00093AA53 /* SceneDelegate.swift in Sources */,
