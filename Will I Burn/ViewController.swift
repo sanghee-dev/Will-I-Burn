@@ -17,6 +17,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var locationManager = CLLocationManager()
 
     var coords: CLLocationCoordinate2D?
+    var uvIndex: Double = 10
     
     var skinType: String = Utilities().getSkinType() {
         didSet {
@@ -57,7 +58,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 switch response.result {
                 case .success(let value):
                     print("Success")
-                    print(value)
+                    
+                    if let JSON = value as? [String: Any] {
+                        let data = JSON["data"] as? Array<Any>
+                        let vals = data?[0]
+                        if let d = vals as? [String: Any] {
+                            if let uv = d["uv"] as? Double {
+                                self.uvIndex = uv
+                                print(uv)
+                                //self.updateUI(dataSuccess: ture)
+                                break
+                            }
+                        }
+                    }
+                    
                 case .failure(let error):
                     print("Failure")
                     print(error)
@@ -86,5 +100,4 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
 }
-
 
