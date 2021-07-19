@@ -25,7 +25,7 @@
                                 <rect key="frame" x="20" y="65" width="53" height="30"/>
                                 <state key="normal" title="Change"/>
                                 <connections>
-                                    <action selector="changeSkinBtnTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TCG-ZP-VZS"/>
+                                    <action selector="changeSkinBtnTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ViG-A2-ir3"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="134" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agP-H4-aLl">
@@ -64,15 +64,13 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="changeBtn" destination="7Pg-IN-RuD" id="8Vh-45-VoY"/>
-                        <outlet property="efds" destination="YdD-2W-4Y1" id="NYa-2g-Vqw"/>
                         <outlet property="minutesLabel" destination="agP-H4-aLl" id="iNz-my-cwv"/>
                         <outlet property="skinTypeLabel" destination="J2Y-Za-DXc" id="HdI-DU-Cfi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="88" y="46"/>
+            <point key="canvasLocation" x="86.956521739130437" y="45.535714285714285"/>
         </scene>
     </scenes>
 </document>

@@ -13,6 +13,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var skinTypeLabel: UILabel!
     @IBOutlet weak var minutesLabel: UILabel!
     
+    var skinType = ""
+    
     var locationManager = CLLocationManager()
 
     override func viewDidLoad() {
@@ -37,8 +39,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func changeSkinBtnTap(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Pink one", message: "Please choose your skin type", preferredStyle: .actionSheet)
+        for skin in SkinType().allSkinTypes() {
+            alert.addAction(UIAlertAction(title: skin, style: .default, handler: { (action) in
+                self.skinType = skin
+            }))
+        }
+        self.present(alert, animated: true, completion: nil)
     }
+    
     @IBAction func setReminderBtnTap(_ sender: UIButton) {
+        
     }
     
 }
+
