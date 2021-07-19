@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E4F385326A539AC0047194E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4F385226A539AC0047194E /* Utilities.swift */; };
 		5EDF61E326A176E00093AA53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDF61E226A176E00093AA53 /* AppDelegate.swift */; };
 		5EDF61E526A176E00093AA53 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDF61E426A176E00093AA53 /* SceneDelegate.swift */; };
 		5EDF61E726A176E00093AA53 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDF61E626A176E00093AA53 /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5E4F385226A539AC0047194E /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		5EDF61DF26A176E00093AA53 /* Will I Burn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Will I Burn.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EDF61E226A176E00093AA53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5EDF61E426A176E00093AA53 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				5EDF61ED26A176E20093AA53 /* LaunchScreen.storyboard */,
 				5EDF61F026A176E20093AA53 /* Info.plist */,
 				5EDF61F626A178890093AA53 /* SkinType.swift */,
+				5E4F385226A539AC0047194E /* Utilities.swift */,
 			);
 			path = "Will I Burn";
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 				5EDF61F726A178890093AA53 /* SkinType.swift in Sources */,
 				5EDF61E726A176E00093AA53 /* ViewController.swift in Sources */,
 				5EDF61E326A176E00093AA53 /* AppDelegate.swift in Sources */,
+				5E4F385326A539AC0047194E /* Utilities.swift in Sources */,
 				5EDF61E526A176E00093AA53 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
