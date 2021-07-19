@@ -13,7 +13,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var skinTypeLabel: UILabel!
     @IBOutlet weak var minutesLabel: UILabel!
     
-    var skinType = ""
+    var skinType: String = Utilities().getSkinType() {
+        didSet {
+            updateSkinLabel()
+            Utilities().setSkinType(value: skinType)
+        }
+    }
     
     var locationManager = CLLocationManager()
 
@@ -21,6 +26,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
+        updateSkinLabel()
     }
 
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
