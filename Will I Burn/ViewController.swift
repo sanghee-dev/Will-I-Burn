@@ -13,14 +13,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var skinTypeLabel: UILabel!
     @IBOutlet weak var minutesLabel: UILabel!
     
+    var locationManager = CLLocationManager()
+
+    var coords: CLLocationCoordinate2D?
+    
     var skinType: String = Utilities().getSkinType() {
         didSet {
             updateSkinLabel()
             Utilities().setSkinType(value: skinType)
         }
     }
-    
-    var locationManager = CLLocationManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +43,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func getLocation() {
+        if let loc = locationManager.location {
+            coords = loc.coordinate
+            getWeatherData()
+        }
+    }
+    
+    func getWeatherData() {
         
     }
     
@@ -64,4 +73,3 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
 }
-
