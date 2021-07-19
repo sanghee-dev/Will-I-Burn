@@ -15,6 +15,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="GSR-9a-gYk">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skin type: Type 1 - Pale / Light" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J2Y-Za-DXc">
                                 <rect key="frame" x="20" y="44" width="229" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -28,20 +32,24 @@
                                     <action selector="changeSkinBtnTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ViG-A2-ir3"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agP-H4-aLl">
-                                <rect key="frame" x="207" y="448" width="0.0" height="0.0"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agP-H4-aLl">
+                                <rect key="frame" x="7" y="383" width="400" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="400" id="Blz-n5-wCl"/>
+                                    <constraint firstAttribute="height" constant="130" id="Wjh-e8-qOE"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="100"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="minutes until you burn" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YdD-2W-4Y1">
-                                <rect key="frame" x="122.5" y="448" width="169" height="21"/>
+                                <rect key="frame" x="122.5" y="513" width="169" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydf-0B-h65">
-                                <rect key="frame" x="160.5" y="489" width="93" height="30"/>
+                                <rect key="frame" x="160.5" y="554" width="93" height="30"/>
                                 <state key="normal" title="Set Reminder"/>
                                 <connections>
                                     <action selector="setReminderBtnTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VJB-Ur-j7v"/>
@@ -51,10 +59,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="GSR-9a-gYk" firstAttribute="centerX" secondItem="agP-H4-aLl" secondAttribute="centerX" id="4O8-Dp-X5V"/>
                             <constraint firstItem="agP-H4-aLl" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="66F-vu-ANI"/>
                             <constraint firstItem="7Pg-IN-RuD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="C6E-96-6U7"/>
                             <constraint firstItem="ydf-0B-h65" firstAttribute="top" secondItem="YdD-2W-4Y1" secondAttribute="bottom" constant="20" id="FEw-Ez-9bJ"/>
                             <constraint firstItem="J2Y-Za-DXc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="J8A-7d-s9a"/>
+                            <constraint firstItem="GSR-9a-gYk" firstAttribute="centerY" secondItem="agP-H4-aLl" secondAttribute="centerY" id="MsN-kU-HFo"/>
                             <constraint firstItem="ydf-0B-h65" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cwV-w4-ypm"/>
                             <constraint firstItem="YdD-2W-4Y1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="g0j-4C-7AW"/>
                             <constraint firstItem="YdD-2W-4Y1" firstAttribute="top" secondItem="agP-H4-aLl" secondAttribute="bottom" id="jbl-9v-r1L"/>
@@ -64,6 +74,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="GSR-9a-gYk" id="Ded-OL-AuY"/>
                         <outlet property="minutesLabel" destination="agP-H4-aLl" id="iNz-my-cwv"/>
                         <outlet property="skinTypeLabel" destination="J2Y-Za-DXc" id="HdI-DU-Cfi"/>
                     </connections>

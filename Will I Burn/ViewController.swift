@@ -13,6 +13,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var skinTypeLabel: UILabel!
     @IBOutlet weak var minutesLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var locationManager = CLLocationManager()
 
@@ -90,6 +91,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             }
             self.burnTimeMinutes = Int(BurnTime().calcBurnTime(skinType: self.skinType, uvIndex: self.uvIndex))
             self.minutesLabel.text = String(self.burnTimeMinutes)
+            self.activityIndicator.stopAnimating()
         }
     }
     
@@ -113,4 +115,3 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
 }
-
