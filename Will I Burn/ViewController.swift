@@ -14,6 +14,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var skinTypeLabel: UILabel!
     @IBOutlet weak var minutesLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var setReminderBtn: UIButton!
     
     var locationManager = CLLocationManager()
 
@@ -92,6 +93,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             self.burnTimeMinutes = Int(BurnTime().calcBurnTime(skinType: self.skinType, uvIndex: self.uvIndex))
             self.minutesLabel.text = String(self.burnTimeMinutes)
             self.activityIndicator.stopAnimating()
+            self.setReminderBtn.isEnabled = true
         }
     }
     
@@ -107,7 +109,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func setReminderBtnTap(_ sender: UIButton) {
+        let center = UNUserNotificationCenter.current()
+        center.removeAllPendingNotificationRequests()
         
+        center.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+            if !granted {
+                return
+            }
+            let content = UNMutableNotificationContent()
+            content.title = "Time's Up!"
+            content.body = "You are beginning to BURN! Please get in to the shade or use strong sunblock and cover up!"
+            content.sound = UNNotificationSound.default
+            
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(self.burnTimeMinutes * 60), repeats: false)
+            let request = UNNotificationRequest(identifier: "burnNotification", content: content, trigger: trigger)
+            center.add(request, withCompletionHandler: nil)
+        }
+
     }
     
     func updateSkinLabel() {
@@ -115,3 +133,4 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
 }
+
