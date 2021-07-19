@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E2BFB3E26A57B6800E93276 /* BurnTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2BFB3D26A57B6800E93276 /* BurnTime.swift */; };
 		5E4F385326A539AC0047194E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4F385226A539AC0047194E /* Utilities.swift */; };
 		5E4F385526A55CC20047194E /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4F385426A55CC20047194E /* WeatherAPI.swift */; };
 		5E4F385826A5666D0047194E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 5E4F385726A5666D0047194E /* Alamofire */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5E2BFB3D26A57B6800E93276 /* BurnTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurnTime.swift; sourceTree = "<group>"; };
 		5E4F385226A539AC0047194E /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		5E4F385426A55CC20047194E /* WeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPI.swift; sourceTree = "<group>"; };
 		5EDF61DF26A176E00093AA53 /* Will I Burn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Will I Burn.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +76,7 @@
 				5EDF61F626A178890093AA53 /* SkinType.swift */,
 				5E4F385226A539AC0047194E /* Utilities.swift */,
 				5E4F385426A55CC20047194E /* WeatherAPI.swift */,
+				5E2BFB3D26A57B6800E93276 /* BurnTime.swift */,
 			);
 			path = "Will I Burn";
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 				5EDF61E326A176E00093AA53 /* AppDelegate.swift in Sources */,
 				5E4F385526A55CC20047194E /* WeatherAPI.swift in Sources */,
 				5E4F385326A539AC0047194E /* Utilities.swift in Sources */,
+				5E2BFB3E26A57B6800E93276 /* BurnTime.swift in Sources */,
 				5EDF61E526A176E00093AA53 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
