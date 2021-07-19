@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreLocation
+import Alamofire
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
@@ -50,7 +51,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func getWeatherData() {
-        
+        if let cds = coords {
+            let url = WeatherAPI(lat: String(cds.latitude), lon: String(cds.longitude)).getFullWeatherUrl()
+            AF.request(url).responseJSON { response in
+                switch response.result {
+                case .success(let value):
+                    print("Success")
+                    print(value)
+                case .failure(let error):
+                    print("Failure")
+                    print(error)
+                }
+            }
+        }
     }
     
     @IBAction func changeSkinBtnTap(_ sender: UIButton) {
@@ -73,3 +86,5 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
 }
+
+
