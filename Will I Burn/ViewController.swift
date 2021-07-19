@@ -43,6 +43,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         for skin in SkinType().allSkinTypes() {
             alert.addAction(UIAlertAction(title: skin, style: .default, handler: { (action) in
                 self.skinType = skin
+                self.updateSkinLabel()
             }))
         }
         self.present(alert, animated: true, completion: nil)
@@ -50,6 +51,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func setReminderBtnTap(_ sender: UIButton) {
         
+    }
+    
+    func updateSkinLabel() {
+        skinTypeLabel.text = skinType
     }
     
 }
