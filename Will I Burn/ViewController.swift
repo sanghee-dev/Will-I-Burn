@@ -18,6 +18,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
     var coords: CLLocationCoordinate2D?
     var uvIndex: Double = 10
+    var burnTimeMinutes: Int = 10
     
     var skinType: String = Utilities().getSkinType() {
         didSet {
@@ -66,7 +67,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                             if let uv = d["uv"] as? Double {
                                 self.uvIndex = uv
                                 print(uv)
-                                //self.updateUI(dataSuccess: ture)
+                                self.updateUI(dataSuccess: true)
                                 break
                             }
                         }
@@ -75,8 +76,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 case .failure(let error):
                     print("Failure")
                     print(error)
+                    self.updateUI(dataSuccess: false)
                 }
             }
+        }
+    }
+    
+    func updateUI(dataSuccess: Bool) {
+        DispatchQueue.main.async {
+            if !dataSuccess {
+                self.getWeatherData()
+                return
+            }
+            self.burnTimeMinutes = Int(BurnTime().calcBurnTime(skinType: self.skinType, uvIndex: self.uvIndex))
+            self.minutesLabel.text = String(self.burnTimeMinutes)
         }
     }
     
