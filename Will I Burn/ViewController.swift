@@ -10,6 +10,9 @@ import CoreLocation
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
+    @IBOutlet weak var skinTypeLabel: UILabel!
+    @IBOutlet weak var minutesLabel: UILabel!
+    
     var locationManager = CLLocationManager()
 
     override func viewDidLoad() {
@@ -32,5 +35,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     func getLocation() {
         
     }
-
+    
+    @IBAction func changeSkinBtnTap(_ sender: UIButton) {
+    }
+    @IBAction func setReminderBtnTap(_ sender: UIButton) {
+    }
+    
 }

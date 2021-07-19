@@ -24,6 +24,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Pg-IN-RuD">
                                 <rect key="frame" x="20" y="65" width="53" height="30"/>
                                 <state key="normal" title="Change"/>
+                                <connections>
+                                    <action selector="changeSkinBtnTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TCG-ZP-VZS"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="134" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agP-H4-aLl">
                                 <rect key="frame" x="107" y="383" width="200" height="130"/>
@@ -40,6 +43,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydf-0B-h65">
                                 <rect key="frame" x="160.5" y="554" width="93" height="30"/>
                                 <state key="normal" title="Set Reminder"/>
+                                <connections>
+                                    <action selector="setReminderBtnTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VJB-Ur-j7v"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -57,6 +63,12 @@
                             <constraint firstItem="7Pg-IN-RuD" firstAttribute="top" secondItem="J2Y-Za-DXc" secondAttribute="bottom" id="w56-sT-5gG"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="changeBtn" destination="7Pg-IN-RuD" id="8Vh-45-VoY"/>
+                        <outlet property="efds" destination="YdD-2W-4Y1" id="NYa-2g-Vqw"/>
+                        <outlet property="minutesLabel" destination="agP-H4-aLl" id="iNz-my-cwv"/>
+                        <outlet property="skinTypeLabel" destination="J2Y-Za-DXc" id="HdI-DU-Cfi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
