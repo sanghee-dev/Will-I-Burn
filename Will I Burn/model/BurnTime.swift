@@ -36,7 +36,6 @@ class BurnTime {
             uvIndex = 0.5
         }
         let burnTime = skinTypeBurnIndex / self.uvIndex
-        print("Burn time: ", String(burnTime))
         return Int(burnTime)
     }
     

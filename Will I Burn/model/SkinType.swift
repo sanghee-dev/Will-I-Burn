@@ -1,3 +1,5 @@
+import Foundation
+
 struct SkinType {
     let type1 = "Type 1 - Pale / Light"
     let type2 = "Type 2 - White / Fair"

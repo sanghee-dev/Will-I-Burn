@@ -47,6 +47,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E16BC1326AFF88F00808D86 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				5E2BFB3D26A57B6800E93276 /* BurnTime.swift */,
+				5EDF61F626A178890093AA53 /* SkinType.swift */,
+				5E4F385426A55CC20047194E /* WeatherAPI.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		5E16BC1426AFF8D700808D86 /* storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				5EDF61E826A176E00093AA53 /* Main.storyboard */,
+				5EDF61ED26A176E20093AA53 /* LaunchScreen.storyboard */,
+			);
+			path = storyboard;
+			sourceTree = "<group>";
+		};
+		5E16BC1526AFF8EC00808D86 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				5EDF61E626A176E00093AA53 /* ViewController.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
 		5EDF61D626A176E00093AA53 = {
 			isa = PBXGroup;
 			children = (
@@ -66,17 +93,14 @@
 		5EDF61E126A176E00093AA53 /* Will I Burn */ = {
 			isa = PBXGroup;
 			children = (
+				5E16BC1326AFF88F00808D86 /* model */,
+				5E16BC1526AFF8EC00808D86 /* controller */,
+				5E16BC1426AFF8D700808D86 /* storyboard */,
 				5EDF61E226A176E00093AA53 /* AppDelegate.swift */,
 				5EDF61E426A176E00093AA53 /* SceneDelegate.swift */,
-				5EDF61E626A176E00093AA53 /* ViewController.swift */,
-				5EDF61E826A176E00093AA53 /* Main.storyboard */,
 				5EDF61EB26A176E20093AA53 /* Assets.xcassets */,
-				5EDF61ED26A176E20093AA53 /* LaunchScreen.storyboard */,
 				5EDF61F026A176E20093AA53 /* Info.plist */,
-				5EDF61F626A178890093AA53 /* SkinType.swift */,
 				5E4F385226A539AC0047194E /* Utilities.swift */,
-				5E4F385426A55CC20047194E /* WeatherAPI.swift */,
-				5E2BFB3D26A57B6800E93276 /* BurnTime.swift */,
 			);
 			path = "Will I Burn";
 			sourceTree = "<group>";
