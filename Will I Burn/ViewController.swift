@@ -60,7 +60,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             AF.request(url).responseJSON { response in
                 switch response.result {
                 case .success(let value):
-                    print("Success")
                     
                     if let JSON = value as? [String: Any] {
                         let data = JSON["data"] as? Array<Any>
@@ -76,7 +75,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                     }
                     
                 case .failure(let error):
-                    print("Failure")
                     print(error)
                     self.updateUI(dataSuccess: false)
                 }
@@ -103,6 +101,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             alert.addAction(UIAlertAction(title: skin, style: .default, handler: { (action) in
                 self.skinType = skin
                 self.updateSkinLabel()
+                self.updateUI(dataSuccess: true)
             }))
         }
         self.present(alert, animated: true, completion: nil)
@@ -125,7 +124,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             let request = UNNotificationRequest(identifier: "burnNotification", content: content, trigger: trigger)
             center.add(request, withCompletionHandler: nil)
         }
-
+        
+        Utilities().showAlert(title: "Reminder", message: "We will remind you after \(self.burnTimeMinutes) minutes!", vc: self)
     }
     
     func updateSkinLabel() {
