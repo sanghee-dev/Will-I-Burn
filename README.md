@@ -3,6 +3,12 @@
 Will I Burn is a service that shows burn time by calculating UV according to user's skin type.
 
 
+## Skills
+
+- Swift
+- Storyboard
+- UserDefaults
+
 ## Ask location permission
 
 - Asks user's location permission.
