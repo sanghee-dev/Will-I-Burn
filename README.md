@@ -1,4 +1,4 @@
-# Will I Burn🌞
+# Will I Burn🥵
 
 Will I Burn is a service that shows burn time by calculating UV according to user's skin type.
 
