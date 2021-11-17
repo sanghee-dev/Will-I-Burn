@@ -10,6 +10,8 @@ import Foundation
 class BurnTimeManager {
     static let shared = BurnTimeManager()
     var uvIndex: Double = 10
+    
+    private init() {}
 }
 
 extension BurnTimeManager {

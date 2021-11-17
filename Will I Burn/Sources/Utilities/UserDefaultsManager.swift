@@ -12,8 +12,7 @@ class UserDefaultsManager {
     let defaults = UserDefaults.standard
     let SKIN_TYPE_KEY = "skinType"
     
-    private init() {
-    }
+    private init() {}
 }
 
 extension UserDefaultsManager {

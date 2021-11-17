@@ -16,16 +16,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var setReminderBtn: UIButton!
     
-    @IBAction func changeSkinBtnTap(_ sender: UIButton) {
-        changeSkinBtnTap()
-    }
-    @IBAction func setReminderBtnTap(_ sender: UIButton) {
-        setReminderBtnTap()
-    }
+    @IBAction func changeSkinBtnTap(_ sender: UIButton) { changeSkinBtnTap() }
+    @IBAction func setReminderBtnTap(_ sender: UIButton) { setReminderBtnTap() }
     
     var locationManager = CLLocationManager()
 
-    var coordinate: CLLocationCoordinate2D?
+    var coordinate: CLLocationCoordinate2D = .init()
     var uvIndex: Double = 10
     var burnTimeMinutes: Int = 10
     var skinType: SkinType = UserDefaultsManager.shared.getSkinType() {
@@ -67,26 +63,13 @@ extension ViewController {
 
 private extension ViewController {
     func getWeatherData() {
-        if let coordinate = coordinate {
-            let url = WeatherAPI(lat: String(coordinate.latitude), lon: String(coordinate.longitude)).getFullWeatherUrl()
-            AF.request(url).responseJSON { response in
-                switch response.result {
-                case .success(let value):
-                    if let JSON = value as? [String: Any] {
-                        let data = JSON["data"] as? Array<Any>
-                        let vals = data?[0]
-                        if let d = vals as? [String: Any] {
-                            if let uv = d["uv"] as? Double {
-                                self.uvIndex = uv
-                                self.updateUI(dataSuccess: true)
-                                break
-                            }
-                        }
-                    }
-                case .failure(let error):
-                    self.showAlert("Error", error.localizedDescription)
-                    self.updateUI(dataSuccess: false)
-                }
+        WeatherManager.shared.getWeatherUV(coordinate) { result in
+            switch result {
+            case .success(let uv):
+                self.uvIndex = uv
+                self.updateUI(dataSuccess: true)
+            case .failure(let error):
+                self.showAlert("Error", error.localizedDescription)
             }
         }
     }
@@ -100,16 +83,14 @@ private extension ViewController {
 
 private extension ViewController {
     func updateUI(dataSuccess: Bool) {
-        DispatchQueue.main.async {
-            if !dataSuccess {
-                self.getWeatherData()
-                return
-            }
-            self.burnTimeMinutes = Int(BurnTimeManager.shared.calcBurnTime(self.skinType, self.uvIndex))
-            self.minutesLabel.text = String(self.burnTimeMinutes)
-            self.activityIndicator.stopAnimating()
-            self.setReminderBtn.isEnabled = true
+        if !dataSuccess {
+            getWeatherData()
+            return
         }
+        burnTimeMinutes = Int(BurnTimeManager.shared.calcBurnTime(skinType, uvIndex))
+        minutesLabel.text = String(burnTimeMinutes)
+        activityIndicator.stopAnimating()
+        setReminderBtn.isEnabled = true
     }
     
     func changeSkinBtnTap() {
