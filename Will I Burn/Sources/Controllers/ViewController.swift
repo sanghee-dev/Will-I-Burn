@@ -25,10 +25,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     var locationManager = CLLocationManager()
 
-    var coords: CLLocationCoordinate2D?
+    var coordinate: CLLocationCoordinate2D?
     var uvIndex: Double = 10
     var burnTimeMinutes: Int = 10
-    
     var skinType: SkinType = UserDefaultsManager.shared.getSkinType() {
         didSet {
             updateSkinLabel()
@@ -46,19 +45,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
 extension ViewController {
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        if manager.authorizationStatus == .authorizedWhenInUse {
-            getLocation()
-        } else {
-            print("loc denied")
-            let alert = UIAlertController(title: "Error!", message: "Please allow location services for Will I Burn. Or else we can't be of any use!", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+        let status = manager.authorizationStatus
+        switch status {
+        case .authorizedAlways: getLocation()
+        case .authorizedWhenInUse: getLocation()
+        case .authorized: getLocation()
+        case .notDetermined: getLocation()
+        case .restricted: showAlert("Error!", "Please allow location services")
+        case .denied: showAlert("Error!", "Please allow location services")
+        @unknown default: showAlert("Error!", "Please allow location services")
         }
     }
     
     func getLocation() {
-        if let loc = locationManager.location {
-            coords = loc.coordinate
+        if let location = locationManager.location {
+            coordinate = location.coordinate
             getWeatherData()
         }
     }
@@ -66,31 +67,34 @@ extension ViewController {
 
 private extension ViewController {
     func getWeatherData() {
-        if let cds = coords {
-            let url = WeatherAPI(lat: String(cds.latitude), lon: String(cds.longitude)).getFullWeatherUrl()
+        if let coordinate = coordinate {
+            let url = WeatherAPI(lat: String(coordinate.latitude), lon: String(coordinate.longitude)).getFullWeatherUrl()
             AF.request(url).responseJSON { response in
                 switch response.result {
                 case .success(let value):
-                    
                     if let JSON = value as? [String: Any] {
                         let data = JSON["data"] as? Array<Any>
                         let vals = data?[0]
                         if let d = vals as? [String: Any] {
                             if let uv = d["uv"] as? Double {
                                 self.uvIndex = uv
-                                print(uv)
                                 self.updateUI(dataSuccess: true)
                                 break
                             }
                         }
                     }
-                    
                 case .failure(let error):
-                    print(error)
+                    self.showAlert("Error", error.localizedDescription)
                     self.updateUI(dataSuccess: false)
                 }
             }
         }
+    }
+    
+    func showAlert(_ title: String, _ message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(.init(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
@@ -138,7 +142,7 @@ private extension ViewController {
             center.add(request, withCompletionHandler: nil)
         }
         
-        Utilities().showAlert(title: "Reminder", message: "We will remind you after \(self.burnTimeMinutes) minutes!", vc: self)
+        showAlert("Reminder", "We will remind you after \(burnTimeMinutes) minutes!")
     }
     
     func updateSkinLabel() {
