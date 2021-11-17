@@ -16,16 +16,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var setReminderBtn: UIButton!
     
+    @IBAction func changeSkinBtnTap(_ sender: UIButton) {
+        changeSkinBtnTap()
+    }
+    @IBAction func setReminderBtnTap(_ sender: UIButton) {
+        setReminderBtnTap()
+    }
+    
     var locationManager = CLLocationManager()
 
     var coords: CLLocationCoordinate2D?
     var uvIndex: Double = 10
     var burnTimeMinutes: Int = 10
     
-    var skinType: SkinType = Utilities().getSkinType() {
+    var skinType: SkinType = UserDefaultsManager.shared.getSkinType() {
         didSet {
             updateSkinLabel()
-            Utilities().setSkinType(skinType)
+            UserDefaultsManager.shared.setSkinType(skinType)
         }
     }
 
@@ -35,7 +42,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.requestWhenInUseAuthorization()
         updateSkinLabel()
     }
+}
 
+extension ViewController {
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         if manager.authorizationStatus == .authorizedWhenInUse {
             getLocation()
@@ -53,7 +62,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             getWeatherData()
         }
     }
-    
+}
+
+private extension ViewController {
     func getWeatherData() {
         if let cds = coords {
             let url = WeatherAPI(lat: String(cds.latitude), lon: String(cds.longitude)).getFullWeatherUrl()
@@ -81,21 +92,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             }
         }
     }
-    
+}
+
+private extension ViewController {
     func updateUI(dataSuccess: Bool) {
         DispatchQueue.main.async {
             if !dataSuccess {
                 self.getWeatherData()
                 return
             }
-            self.burnTimeMinutes = Int(BurnTimeManager.shared.calcBurnTime(skinType: self.skinType, uvIndex: self.uvIndex))
+            self.burnTimeMinutes = Int(BurnTimeManager.shared.calcBurnTime(self.skinType, self.uvIndex))
             self.minutesLabel.text = String(self.burnTimeMinutes)
             self.activityIndicator.stopAnimating()
             self.setReminderBtn.isEnabled = true
         }
     }
     
-    @IBAction func changeSkinBtnTap(_ sender: UIButton) {
+    func changeSkinBtnTap() {
         let alert = UIAlertController(title: "Pink one", message: "Please choose your skin type", preferredStyle: .actionSheet)
         for skinType in SkinType.allCases {
             alert.addAction(UIAlertAction(title: skinType.rawValue, style: .default, handler: { [weak self] _ in
@@ -107,7 +120,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         self.present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func setReminderBtnTap(_ sender: UIButton) {
+    func setReminderBtnTap() {
         let center = UNUserNotificationCenter.current()
         center.removeAllPendingNotificationRequests()
         
