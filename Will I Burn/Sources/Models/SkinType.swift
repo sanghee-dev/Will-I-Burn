@@ -1,14 +1,17 @@
+//
+//  SkinType.swift
+//  Will I Burn
+//
+//  Created by leeesangheee on 2021/07/16.
+//
+
 import Foundation
 
-struct SkinType {
-    let type1 = "Type 1 - Pale / Light"
-    let type2 = "Type 2 - White / Fair"
-    let type3 = "Type 3 - Medium"
-    let type4 = "Type 4 - Olive Brown"
-    let type5 = "Type 5 - Dark Brown"
-    let type6 = "Type 6 - Very Dark / Black"
-
-    func allSkinTypes() -> [String] {
-        return [type1, type2, type3, type4, type5, type6]
-    }
+enum SkinType: String, CaseIterable {
+    case type1 = "Type 1 - Pale / Light"
+    case type2 = "Type 2 - White / Fair"
+    case type3 = "Type 3 - Medium"
+    case type4 = "Type 4 - Olive Brown"
+    case type5 = "Type 5 - Dark Brown"
+    case type6 = "Type 6 - Very Dark / Black"
 }

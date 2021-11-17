@@ -1,42 +1,28 @@
+//
+//  BurnTimeManager.swift
+//  Will I Burn
+//
+//  Created by leeesangheee on 2021/07/16.
+//
+
 import Foundation
 
 class BurnTimeManager {
     static let shared = BurnTimeManager()
     var uvIndex: Double = 10
-    
-    let bt1: Double = 67
-    let bt2: Double = 100
-    let bt3: Double = 200
-    let bt4: Double = 300
-    let bt5: Double = 400
-    let bt6: Double = 500
 }
 
 extension BurnTimeManager {
-    func calcBurnTime(skinType: String, uvIndex: Double) -> Int {
-        self.uvIndex = uvIndex
+    func calcBurnTime(skinType: SkinType, uvIndex: Double) -> Int {
+        self.uvIndex = (uvIndex > 0.5) ? uvIndex : 0.5
         
         switch skinType {
-        case SkinType().type1:
-            return calcBurnTime(skinTypeBurnIndex: bt1)
-        case SkinType().type2:
-            return calcBurnTime(skinTypeBurnIndex: bt2)
-        case SkinType().type3:
-            return calcBurnTime(skinTypeBurnIndex: bt3)
-        case SkinType().type4:
-            return calcBurnTime(skinTypeBurnIndex: bt4)
-        case SkinType().type5:
-            return calcBurnTime(skinTypeBurnIndex: bt5)
-        case SkinType().type6:
-            return calcBurnTime(skinTypeBurnIndex: bt6)
-        default:
-            return 5
+        case .type1: return Int(SkinTime.time1.rawValue / uvIndex)
+        case .type2: return Int(SkinTime.time2.rawValue / uvIndex)
+        case .type3: return Int(SkinTime.time3.rawValue / uvIndex)
+        case .type4: return Int(SkinTime.time4.rawValue / uvIndex)
+        case .type5: return Int(SkinTime.time5.rawValue / uvIndex)
+        case .type6: return Int(SkinTime.time6.rawValue / uvIndex)
         }
-    }
-    
-    func calcBurnTime(skinTypeBurnIndex: Double) -> Int {
-        if uvIndex < 0.5 { uvIndex = 0.5 }
-        let burnTime = skinTypeBurnIndex / uvIndex
-        return Int(burnTime)
     }
 }

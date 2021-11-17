@@ -6,8 +6,8 @@
 //
 
 import UIKit
-import CoreLocation
 import Alamofire
+import CoreLocation
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
@@ -22,10 +22,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var uvIndex: Double = 10
     var burnTimeMinutes: Int = 10
     
-    var skinType: String = Utilities().getSkinType() {
+    var skinType: SkinType = Utilities().getSkinType() {
         didSet {
             updateSkinLabel()
-            Utilities().setSkinType(value: skinType)
+            Utilities().setSkinType(skinType)
         }
     }
 
@@ -97,11 +97,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func changeSkinBtnTap(_ sender: UIButton) {
         let alert = UIAlertController(title: "Pink one", message: "Please choose your skin type", preferredStyle: .actionSheet)
-        for skin in SkinType().allSkinTypes() {
-            alert.addAction(UIAlertAction(title: skin, style: .default, handler: { (action) in
-                self.skinType = skin
-                self.updateSkinLabel()
-                self.updateUI(dataSuccess: true)
+        for skinType in SkinType.allCases {
+            alert.addAction(UIAlertAction(title: skinType.rawValue, style: .default, handler: { [weak self] _ in
+                self?.skinType = skinType
+                self?.updateSkinLabel()
+                self?.updateUI(dataSuccess: true)
             }))
         }
         self.present(alert, animated: true, completion: nil)
@@ -129,8 +129,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func updateSkinLabel() {
-        skinTypeLabel.text = skinType
+        skinTypeLabel.text = skinType.rawValue
     }
-    
 }
-

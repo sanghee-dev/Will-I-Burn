@@ -1,3 +1,10 @@
+//
+//  Utilities.swift
+//  Will I Burn
+//
+//  Created by leeesangheee on 2021/07/16.
+//
+
 import UIKit
 
 class Utilities {
@@ -13,18 +20,18 @@ class Utilities {
         return UserDefaults.standard
     }
     
-    func setSkinType(value: String) {
+    func setSkinType(_ type: SkinType) {
         let defaults = getStorage()
-        defaults.setValue(value, forKey: skinTypeKey)
+        defaults.setValue(type.rawValue, forKey: skinTypeKey)
         defaults.synchronize()
     }
     
-    func getSkinType() -> String {
+    func getSkinType() -> SkinType {
         let defaults = getStorage()
-        if let item = defaults.string(forKey: skinTypeKey) {
-            return item
-        }
-        return SkinType().type1
+//        if let item = defaults.string(forKey: skinTypeKey) {
+//            return item
+//        }
+        return SkinType.type1
     }
     
 }

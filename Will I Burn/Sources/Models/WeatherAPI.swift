@@ -1,3 +1,10 @@
+//
+//  WeatherAPI.swift
+//  Will I Burn
+//
+//  Created by leeesangheee on 2021/07/16.
+//
+
 import Foundation
 
 struct WeatherAPI {
