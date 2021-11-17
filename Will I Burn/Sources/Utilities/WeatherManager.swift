@@ -11,13 +11,21 @@ import CoreLocation
 
 class WeatherManager {
     static let shared = WeatherManager()
+
+    func getWeatherUrl(_ coordinate: CLLocationCoordinate2D) -> String {
+        let baseUrl = "https://api.weatherbit.io/v2.0/current?"
+        let key = "&key=83b573f898c44511bc811d7c795d29d9"
+        let params = "&lat=\(coordinate.latitude)&lon=\(coordinate.longitude)"
+        
+        return baseUrl + params + key
+    }
     
     private init() {}
 }
 
 extension WeatherManager {
     func getWeatherUV(_ coordinate: CLLocationCoordinate2D, _ completion: @escaping (Result<Double, Error>) -> Void) {
-        let url = WeatherAPI(lat: String(coordinate.latitude), lon: String(coordinate.longitude)).getFullWeatherUrl()
+        let url = getWeatherUrl(coordinate)
         
         AF.request(url).responseJSON { response in
             switch response.result {
