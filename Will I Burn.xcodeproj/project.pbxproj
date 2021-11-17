@@ -115,8 +115,6 @@
 		5EEF208D274533B000E2C7CA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				5EDF61E226A176E00093AA53 /* AppDelegate.swift */,
-				5EDF61E426A176E00093AA53 /* SceneDelegate.swift */,
 				5EDF61EB26A176E20093AA53 /* Assets.xcassets */,
 				5EDF61F026A176E20093AA53 /* Info.plist */,
 			);
@@ -130,8 +128,18 @@
 				5E16BC1326AFF88F00808D86 /* Models */,
 				5E16BC1526AFF8EC00808D86 /* Controllers */,
 				5EEF208C274533A000E2C7CA /* Utilities */,
+				5EEF20B527453DD400E2C7CA /* Systems */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		5EEF20B527453DD400E2C7CA /* Systems */ = {
+			isa = PBXGroup;
+			children = (
+				5EDF61E426A176E00093AA53 /* SceneDelegate.swift */,
+				5EDF61E226A176E00093AA53 /* AppDelegate.swift */,
+			);
+			path = Systems;
 			sourceTree = "<group>";
 		};
 		785D618C06FA4DCAE22F2943 /* Frameworks */ = {
@@ -421,7 +429,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T53Y7GLJ7K;
-				INFOPLIST_FILE = "Will I Burn/Info.plist";
+				INFOPLIST_FILE = "Will I Burn/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -441,7 +449,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T53Y7GLJ7K;
-				INFOPLIST_FILE = "Will I Burn/Info.plist";
+				INFOPLIST_FILE = "Will I Burn/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
