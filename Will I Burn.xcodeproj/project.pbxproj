@@ -3,14 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		586203B2E31349DA28C1FEE4 /* Pods_Will_I_Burn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41ED139AF63F789DED691A65 /* Pods_Will_I_Burn.framework */; };
 		5E2BFB3E26A57B6800E93276 /* BurnTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2BFB3D26A57B6800E93276 /* BurnTime.swift */; };
 		5E4F385326A539AC0047194E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4F385226A539AC0047194E /* Utilities.swift */; };
 		5E4F385526A55CC20047194E /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4F385426A55CC20047194E /* WeatherAPI.swift */; };
-		5E4F385826A5666D0047194E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 5E4F385726A5666D0047194E /* Alamofire */; };
 		5EDF61E326A176E00093AA53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDF61E226A176E00093AA53 /* AppDelegate.swift */; };
 		5EDF61E526A176E00093AA53 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDF61E426A176E00093AA53 /* SceneDelegate.swift */; };
 		5EDF61E726A176E00093AA53 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDF61E626A176E00093AA53 /* ViewController.swift */; };
@@ -21,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		03FBF9F885322988D7DEC15C /* Pods-Will I Burn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Will I Burn.debug.xcconfig"; path = "Target Support Files/Pods-Will I Burn/Pods-Will I Burn.debug.xcconfig"; sourceTree = "<group>"; };
+		41ED139AF63F789DED691A65 /* Pods_Will_I_Burn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Will_I_Burn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E2BFB3D26A57B6800E93276 /* BurnTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurnTime.swift; sourceTree = "<group>"; };
 		5E4F385226A539AC0047194E /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		5E4F385426A55CC20047194E /* WeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPI.swift; sourceTree = "<group>"; };
@@ -33,6 +35,7 @@
 		5EDF61EE26A176E20093AA53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5EDF61F026A176E20093AA53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5EDF61F626A178890093AA53 /* SkinType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinType.swift; sourceTree = "<group>"; };
+		FEDA54D69E0D3E3D684B9FAB /* Pods-Will I Burn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Will I Burn.release.xcconfig"; path = "Target Support Files/Pods-Will I Burn/Pods-Will I Burn.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,7 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E4F385826A5666D0047194E /* Alamofire in Frameworks */,
+				586203B2E31349DA28C1FEE4 /* Pods_Will_I_Burn.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +82,8 @@
 			children = (
 				5EDF61E126A176E00093AA53 /* Will I Burn */,
 				5EDF61E026A176E00093AA53 /* Products */,
+				E3DA2FA0C28A6CE16388D8E1 /* Pods */,
+				785D618C06FA4DCAE22F2943 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +110,24 @@
 			path = "Will I Burn";
 			sourceTree = "<group>";
 		};
+		785D618C06FA4DCAE22F2943 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				41ED139AF63F789DED691A65 /* Pods_Will_I_Burn.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E3DA2FA0C28A6CE16388D8E1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				03FBF9F885322988D7DEC15C /* Pods-Will I Burn.debug.xcconfig */,
+				FEDA54D69E0D3E3D684B9FAB /* Pods-Will I Burn.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -112,18 +135,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5EDF61F326A176E20093AA53 /* Build configuration list for PBXNativeTarget "Will I Burn" */;
 			buildPhases = (
+				D711273B8D6212CC84047291 /* [CP] Check Pods Manifest.lock */,
 				5EDF61DB26A176E00093AA53 /* Sources */,
 				5EDF61DC26A176E00093AA53 /* Frameworks */,
 				5EDF61DD26A176E00093AA53 /* Resources */,
+				209A7555A40DDE3776076D4E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Will I Burn";
-			packageProductDependencies = (
-				5E4F385726A5666D0047194E /* Alamofire */,
-			);
 			productName = "Will I Burn";
 			productReference = 5EDF61DF26A176E00093AA53 /* Will I Burn.app */;
 			productType = "com.apple.product-type.application";
@@ -151,9 +173,6 @@
 				Base,
 			);
 			mainGroup = 5EDF61D626A176E00093AA53;
-			packageReferences = (
-				5E4F385626A5666D0047194E /* XCRemoteSwiftPackageReference "Alamofire" */,
-			);
 			productRefGroup = 5EDF61E026A176E00093AA53 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -175,6 +194,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		209A7555A40DDE3776076D4E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Will I Burn/Pods-Will I Burn-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Will I Burn/Pods-Will I Burn-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Will I Burn/Pods-Will I Burn-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D711273B8D6212CC84047291 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Will I Burn-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5EDF61DB26A176E00093AA53 /* Sources */ = {
@@ -331,6 +392,7 @@
 		};
 		5EDF61F426A176E20093AA53 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 03FBF9F885322988D7DEC15C /* Pods-Will I Burn.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -350,6 +412,7 @@
 		};
 		5EDF61F526A176E20093AA53 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FEDA54D69E0D3E3D684B9FAB /* Pods-Will I Burn.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -389,25 +452,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		5E4F385626A5666D0047194E /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.4.3;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		5E4F385726A5666D0047194E /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5E4F385626A5666D0047194E /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5EDF61D726A176E00093AA53 /* Project object */;
 }
