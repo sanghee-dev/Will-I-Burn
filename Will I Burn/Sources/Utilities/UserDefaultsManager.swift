@@ -17,9 +17,9 @@ class UserDefaultsManager {
 
 extension UserDefaultsManager {
     func getSkinType() -> SkinType {
-//        if let item = defaults.string(forKey: SKIN_TYPE_KEY) {
-//            return item
-//        }
+        if let type = defaults.string(forKey: SKIN_TYPE_KEY), let skinType = SkinType(rawValue: type) {
+            return skinType
+        }
         return SkinType.type1
     }
     

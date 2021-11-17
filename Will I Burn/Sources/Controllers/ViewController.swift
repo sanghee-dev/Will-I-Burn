@@ -23,7 +23,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
     var coordinate: CLLocationCoordinate2D = .init()
     var uvIndex: Double = 10
-    var burnTimeMinutes: Int = 10
+    var burnTime: Int = 10
     var skinType: SkinType = UserDefaultsManager.shared.getSkinType() {
         didSet {
             updateSkinLabel()
@@ -87,8 +87,8 @@ private extension ViewController {
             getWeatherData()
             return
         }
-        burnTimeMinutes = Int(BurnTimeManager.shared.calcBurnTime(skinType, uvIndex))
-        minutesLabel.text = String(burnTimeMinutes)
+        burnTime = Int(BurnTimeManager.shared.calcBurnTime(skinType, uvIndex))
+        minutesLabel.text = String(burnTime)
         activityIndicator.stopAnimating()
         setReminderBtn.isEnabled = true
     }
@@ -118,12 +118,12 @@ private extension ViewController {
             content.body = "You are beginning to BURN! Please get in to the shade or use strong sunblock and cover up!"
             content.sound = UNNotificationSound.default
             
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(self.burnTimeMinutes * 60), repeats: false)
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(self.burnTime * 60), repeats: false)
             let request = UNNotificationRequest(identifier: "burnNotification", content: content, trigger: trigger)
             center.add(request, withCompletionHandler: nil)
         }
         
-        showAlert("Reminder", "We will remind you after \(burnTimeMinutes) minutes!")
+        showAlert("Reminder", "We will remind you after \(burnTime) minutes!")
     }
     
     func updateSkinLabel() {
