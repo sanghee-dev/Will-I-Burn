@@ -3,12 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		586203B2E31349DA28C1FEE4 /* Pods_Will_I_Burn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41ED139AF63F789DED691A65 /* Pods_Will_I_Burn.framework */; };
-		5E2BFB3E26A57B6800E93276 /* BurnTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2BFB3D26A57B6800E93276 /* BurnTime.swift */; };
+		5E2BFB3E26A57B6800E93276 /* BurnTimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2BFB3D26A57B6800E93276 /* BurnTimeManager.swift */; };
 		5E4F385326A539AC0047194E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4F385226A539AC0047194E /* Utilities.swift */; };
 		5E4F385526A55CC20047194E /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4F385426A55CC20047194E /* WeatherAPI.swift */; };
 		5EDF61E326A176E00093AA53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDF61E226A176E00093AA53 /* AppDelegate.swift */; };
@@ -23,7 +23,7 @@
 /* Begin PBXFileReference section */
 		03FBF9F885322988D7DEC15C /* Pods-Will I Burn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Will I Burn.debug.xcconfig"; path = "Target Support Files/Pods-Will I Burn/Pods-Will I Burn.debug.xcconfig"; sourceTree = "<group>"; };
 		41ED139AF63F789DED691A65 /* Pods_Will_I_Burn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Will_I_Burn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E2BFB3D26A57B6800E93276 /* BurnTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurnTime.swift; sourceTree = "<group>"; };
+		5E2BFB3D26A57B6800E93276 /* BurnTimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurnTimeManager.swift; sourceTree = "<group>"; };
 		5E4F385226A539AC0047194E /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		5E4F385426A55CC20047194E /* WeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPI.swift; sourceTree = "<group>"; };
 		5EDF61DF26A176E00093AA53 /* Will I Burn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Will I Burn.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,31 +50,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5E16BC1326AFF88F00808D86 /* model */ = {
+		5E16BC1326AFF88F00808D86 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5E2BFB3D26A57B6800E93276 /* BurnTime.swift */,
 				5EDF61F626A178890093AA53 /* SkinType.swift */,
 				5E4F385426A55CC20047194E /* WeatherAPI.swift */,
 			);
-			path = model;
+			path = Models;
 			sourceTree = "<group>";
 		};
-		5E16BC1426AFF8D700808D86 /* storyboard */ = {
+		5E16BC1426AFF8D700808D86 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
 				5EDF61E826A176E00093AA53 /* Main.storyboard */,
 				5EDF61ED26A176E20093AA53 /* LaunchScreen.storyboard */,
 			);
-			path = storyboard;
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		5E16BC1526AFF8EC00808D86 /* controller */ = {
+		5E16BC1526AFF8EC00808D86 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				5EDF61E626A176E00093AA53 /* ViewController.swift */,
 			);
-			path = controller;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		5EDF61D626A176E00093AA53 = {
@@ -98,16 +97,41 @@
 		5EDF61E126A176E00093AA53 /* Will I Burn */ = {
 			isa = PBXGroup;
 			children = (
-				5E16BC1326AFF88F00808D86 /* model */,
-				5E16BC1526AFF8EC00808D86 /* controller */,
-				5E16BC1426AFF8D700808D86 /* storyboard */,
+				5EEF208E274533B800E2C7CA /* Sources */,
+				5EEF208D274533B000E2C7CA /* Resources */,
+			);
+			path = "Will I Burn";
+			sourceTree = "<group>";
+		};
+		5EEF208C274533A000E2C7CA /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				5E2BFB3D26A57B6800E93276 /* BurnTimeManager.swift */,
+				5E4F385226A539AC0047194E /* Utilities.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		5EEF208D274533B000E2C7CA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				5EDF61E226A176E00093AA53 /* AppDelegate.swift */,
 				5EDF61E426A176E00093AA53 /* SceneDelegate.swift */,
 				5EDF61EB26A176E20093AA53 /* Assets.xcassets */,
 				5EDF61F026A176E20093AA53 /* Info.plist */,
-				5E4F385226A539AC0047194E /* Utilities.swift */,
 			);
-			path = "Will I Burn";
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5EEF208E274533B800E2C7CA /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				5E16BC1426AFF8D700808D86 /* Storyboards */,
+				5E16BC1326AFF88F00808D86 /* Models */,
+				5E16BC1526AFF8EC00808D86 /* Controllers */,
+				5EEF208C274533A000E2C7CA /* Utilities */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		785D618C06FA4DCAE22F2943 /* Frameworks */ = {
@@ -124,7 +148,6 @@
 				03FBF9F885322988D7DEC15C /* Pods-Will I Burn.debug.xcconfig */,
 				FEDA54D69E0D3E3D684B9FAB /* Pods-Will I Burn.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -247,7 +270,7 @@
 				5EDF61E326A176E00093AA53 /* AppDelegate.swift in Sources */,
 				5E4F385526A55CC20047194E /* WeatherAPI.swift in Sources */,
 				5E4F385326A539AC0047194E /* Utilities.swift in Sources */,
-				5E2BFB3E26A57B6800E93276 /* BurnTime.swift in Sources */,
+				5E2BFB3E26A57B6800E93276 /* BurnTimeManager.swift in Sources */,
 				5EDF61E526A176E00093AA53 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

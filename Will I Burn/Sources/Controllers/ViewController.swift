@@ -88,7 +88,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 self.getWeatherData()
                 return
             }
-            self.burnTimeMinutes = Int(BurnTime().calcBurnTime(skinType: self.skinType, uvIndex: self.uvIndex))
+            self.burnTimeMinutes = Int(BurnTimeManager.shared.calcBurnTime(skinType: self.skinType, uvIndex: self.uvIndex))
             self.minutesLabel.text = String(self.burnTimeMinutes)
             self.activityIndicator.stopAnimating()
             self.setReminderBtn.isEnabled = true
