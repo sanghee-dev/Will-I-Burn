@@ -38,7 +38,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 extension ViewController {
     func configureLocation() {
         LocationManager.shared.startLocationAuthorization()
-        NotificationCenter.default.addObserver(self, selector: #selector(locationSuccess(_:)), name: Notification.Name("coordinate"), object: nil)
+        NotificationMananger.shared.center.addObserver(self, selector: #selector(locationSuccess(_:)), name: Notification.Name("coordinate"), object: nil)
     }
     
     @objc func locationSuccess(_ notification: NSNotification) {

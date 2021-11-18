@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		586203B2E31349DA28C1FEE4 /* Pods_Will_I_Burn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41ED139AF63F789DED691A65 /* Pods_Will_I_Burn.framework */; };
 		5E2BFB3E26A57B6800E93276 /* BurnTimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2BFB3D26A57B6800E93276 /* BurnTimeManager.swift */; };
+		5E40442727464BA000467D0A /* NotificationMananger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E40442627464BA000467D0A /* NotificationMananger.swift */; };
 		5EDF61E326A176E00093AA53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDF61E226A176E00093AA53 /* AppDelegate.swift */; };
 		5EDF61E526A176E00093AA53 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDF61E426A176E00093AA53 /* SceneDelegate.swift */; };
 		5EDF61E726A176E00093AA53 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDF61E626A176E00093AA53 /* ViewController.swift */; };
@@ -26,6 +27,7 @@
 		03FBF9F885322988D7DEC15C /* Pods-Will I Burn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Will I Burn.debug.xcconfig"; path = "Target Support Files/Pods-Will I Burn/Pods-Will I Burn.debug.xcconfig"; sourceTree = "<group>"; };
 		41ED139AF63F789DED691A65 /* Pods_Will_I_Burn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Will_I_Burn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E2BFB3D26A57B6800E93276 /* BurnTimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurnTimeManager.swift; sourceTree = "<group>"; };
+		5E40442627464BA000467D0A /* NotificationMananger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationMananger.swift; sourceTree = "<group>"; };
 		5EDF61DF26A176E00093AA53 /* Will I Burn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Will I Burn.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EDF61E226A176E00093AA53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5EDF61E426A176E00093AA53 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				5EEF20B82745476000E2C7CA /* UserDefaultsManager.swift */,
 				5EEF20BA274553EF00E2C7CA /* WeatherManager.swift */,
 				5EEF20C027456B7600E2C7CA /* LocationManager.swift */,
+				5E40442627464BA000467D0A /* NotificationMananger.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				5EDF61F726A178890093AA53 /* SkinType.swift in Sources */,
 				5EDF61E726A176E00093AA53 /* ViewController.swift in Sources */,
 				5EDF61E326A176E00093AA53 /* AppDelegate.swift in Sources */,
+				5E40442727464BA000467D0A /* NotificationMananger.swift in Sources */,
 				5EEF20B92745476000E2C7CA /* UserDefaultsManager.swift in Sources */,
 				5E2BFB3E26A57B6800E93276 /* BurnTimeManager.swift in Sources */,
 				5EEF20BB274553F000E2C7CA /* WeatherManager.swift in Sources */,

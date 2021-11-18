@@ -40,7 +40,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
-            postNotification("coordinate", ["coordinate": location.coordinate])
+            NotificationMananger.shared.postNotification("coordinate", ["coordinate": location.coordinate])
             manager.stopUpdatingLocation()
         }
     }
@@ -51,9 +51,5 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         manager.stopUpdatingLocation()
-    }
-    
-    func postNotification(_ name: String, _ userInfo: [AnyHashable : Any]? = nil) {
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: name), object: nil, userInfo: userInfo)
     }
 }
