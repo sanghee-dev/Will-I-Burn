@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  Will I Burn
 //
 //  Created by leeesangheee on 2021/07/16.
@@ -8,7 +8,7 @@
 import UIKit
 import CoreLocation
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var skinTypeLabel: UILabel!
@@ -47,7 +47,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController {
+extension MainViewController {
     func configureLocation() {
         LocationManager.shared.startLocationAuthorization()
         NotificationMananger.shared.center.addObserver(self, selector: #selector(locationSuccess(_:)), name: Notification.Name("coordinate"), object: nil)
@@ -73,7 +73,7 @@ extension ViewController {
     }
 }
 
-private extension ViewController {
+private extension MainViewController {
     func skinButtonTapped() {
         let alert = UIAlertController(title: "Pink one", message: "Please choose your skin type", preferredStyle: .actionSheet)
         for skinType in SkinType.allCases {
@@ -91,7 +91,7 @@ private extension ViewController {
     }
 }
 
-private extension ViewController {
+private extension MainViewController {
     func updateUI() {
         skinTypeLabel.alpha = 1
         skinTypeLabel.text = skinType.rawValue
