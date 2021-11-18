@@ -19,6 +19,7 @@
 		5EEF20B72745450A00E2C7CA /* SkinTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEF20B62745450A00E2C7CA /* SkinTime.swift */; };
 		5EEF20B92745476000E2C7CA /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEF20B82745476000E2C7CA /* UserDefaultsManager.swift */; };
 		5EEF20BB274553F000E2C7CA /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEF20BA274553EF00E2C7CA /* WeatherManager.swift */; };
+		5EEF20C127456B7600E2C7CA /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEF20C027456B7600E2C7CA /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		5EEF20B62745450A00E2C7CA /* SkinTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinTime.swift; sourceTree = "<group>"; };
 		5EEF20B82745476000E2C7CA /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		5EEF20BA274553EF00E2C7CA /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
+		5EEF20C027456B7600E2C7CA /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		FEDA54D69E0D3E3D684B9FAB /* Pods-Will I Burn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Will I Burn.release.xcconfig"; path = "Target Support Files/Pods-Will I Burn/Pods-Will I Burn.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,6 +113,7 @@
 				5E2BFB3D26A57B6800E93276 /* BurnTimeManager.swift */,
 				5EEF20B82745476000E2C7CA /* UserDefaultsManager.swift */,
 				5EEF20BA274553EF00E2C7CA /* WeatherManager.swift */,
+				5EEF20C027456B7600E2C7CA /* LocationManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				5EEF20BB274553F000E2C7CA /* WeatherManager.swift in Sources */,
 				5EDF61E526A176E00093AA53 /* SceneDelegate.swift in Sources */,
 				5EEF20B72745450A00E2C7CA /* SkinTime.swift in Sources */,
+				5EEF20C127456B7600E2C7CA /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

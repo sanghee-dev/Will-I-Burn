@@ -18,9 +18,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBAction func changeSkinBtnTap(_ sender: UIButton) { changeSkinBtnTap() }
     @IBAction func setReminderBtnTap(_ sender: UIButton) { setReminderBtnTap() }
     
-    var locationManager = CLLocationManager()
-
-    var coordinate: CLLocationCoordinate2D = .init()
     var uvIndex: Double = 10
     var burnTime: Int = 10
     var skinType: SkinType = UserDefaultsManager.shared.getSkinType() {
@@ -32,36 +29,25 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
+
+        configureLocation()
         updateSkinLabel()
     }
 }
 
 extension ViewController {
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        let status = manager.authorizationStatus
-        switch status {
-        case .authorizedAlways: getLocation()
-        case .authorizedWhenInUse: getLocation()
-        case .authorized: getLocation()
-        case .notDetermined: getLocation()
-        case .restricted: showAlert("Error!", "Please allow location services")
-        case .denied: showAlert("Error!", "Please allow location services")
-        @unknown default: showAlert("Error!", "Please allow location services")
+    func configureLocation() {
+        LocationManager.shared.startLocationAuthorization()
+        NotificationCenter.default.addObserver(self, selector: #selector(locationSuccess(_:)), name: Notification.Name("coordinate"), object: nil)
+    }
+    
+    @objc func locationSuccess(_ notification: NSNotification) {
+        if let coordinate = notification.userInfo?["coordinate"] as? CLLocationCoordinate2D {
+            getWeatherData(coordinate)
         }
     }
     
-    func getLocation() {
-        if let location = locationManager.location {
-            coordinate = location.coordinate
-            getWeatherData()
-        }
-    }
-}
-
-private extension ViewController {
-    func getWeatherData() {
+    func getWeatherData(_ coordinate: CLLocationCoordinate2D) {
         WeatherManager.shared.getWeatherUV(coordinate) { result in
             switch result {
             case .success(let uv):
@@ -72,18 +58,18 @@ private extension ViewController {
             }
         }
     }
-    
+}
+
+private extension ViewController {
     func showAlert(_ title: String, _ message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(.init(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
-}
-
-private extension ViewController {
+    
     func updateUI(dataSuccess: Bool) {
         if !dataSuccess {
-            getWeatherData()
+//            getWeatherData()
             return
         }
         burnTime = Int(BurnTimeManager.shared.calcBurnTime(skinType, uvIndex))
