@@ -10,23 +10,35 @@ import CoreLocation
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var skinTypeLabel: UILabel!
-    @IBOutlet weak var minutesLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var setReminderBtn: UIButton!
+    @IBOutlet weak var skinTypeLabel: UILabel!
+    @IBOutlet weak var skinTypeButton: UIButton!
+    @IBOutlet weak var burnTimeLabel: UILabel!
+    @IBOutlet weak var minutesSentenceLabel: UILabel!
+    @IBOutlet weak var reminderButton: UIButton!
     
-    @IBAction func changeSkinBtnTap(_ sender: UIButton) { skinBtnTapped() }
-    @IBAction func setReminderBtnTap(_ sender: UIButton) { reminderBtnTapped() }
+    @IBAction func skinButtonTapped(_ sender: UIButton) { skinButtonTapped() }
+    @IBAction func reminderButtonTapped(_ sender: UIButton) { reminderButtonTapped() }
     
-    var burnTime: Int = 10
-    var coordinate: CLLocationCoordinate2D = .init() {
-        didSet { getWeatherData() }
+    private var burnTime: Int = 10 {
+        didSet {
+            updateUI()
+        }
     }
-    var uvIndex: Double = 10 {
-        didSet { updateUI() }
+    private var coordinate: CLLocationCoordinate2D = .init() {
+        didSet {
+            getWeatherData()
+        }
     }
-    var skinType: SkinType = UserDefaultsManager.shared.getSkinType() {
-        didSet { updateUI() }
+    private var uvIndex: Double = 10 {
+        didSet {
+            calculateBurnTime()
+        }
+    }
+    private var skinType: SkinType = UserDefaultsManager.shared.getSkinType() {
+        didSet {
+            calculateBurnTime()
+        }
     }
 
     override func viewDidLoad() {
@@ -55,10 +67,14 @@ extension ViewController {
             }
         }
     }
+    
+    func calculateBurnTime() {
+        burnTime = Int(BurnTimeManager.shared.calcBurnTime(skinType, uvIndex))
+    }
 }
 
 private extension ViewController {
-    func skinBtnTapped() {
+    func skinButtonTapped() {
         let alert = UIAlertController(title: "Pink one", message: "Please choose your skin type", preferredStyle: .actionSheet)
         for skinType in SkinType.allCases {
             alert.addAction(UIAlertAction(title: skinType.rawValue, style: .default, handler: { [weak self] _ in
@@ -69,7 +85,7 @@ private extension ViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    func reminderBtnTapped() {
+    func reminderButtonTapped() {
         UserNotificationMananger.shared.requestNotification(after: burnTime)
         showAlert("Reminder", "We will remind you after \(burnTime) minutes!")
     }
@@ -77,10 +93,13 @@ private extension ViewController {
 
 private extension ViewController {
     func updateUI() {
+        skinTypeLabel.alpha = 1
         skinTypeLabel.text = skinType.rawValue
-        burnTime = Int(BurnTimeManager.shared.calcBurnTime(skinType, uvIndex))
-        minutesLabel.text = String(burnTime)
-        setReminderBtn.isEnabled = true
+        burnTimeLabel.text = String(burnTime)
+        minutesSentenceLabel.alpha = 1
+        
+        skinTypeButton.isEnabled = true
+        reminderButton.isEnabled = true
         activityIndicator.stopAnimating()
     }
     

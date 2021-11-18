@@ -115,9 +115,9 @@
 			isa = PBXGroup;
 			children = (
 				5E2BFB3D26A57B6800E93276 /* BurnTimeManager.swift */,
-				5EEF20B82745476000E2C7CA /* UserDefaultsManager.swift */,
 				5EEF20BA274553EF00E2C7CA /* WeatherManager.swift */,
 				5EEF20C027456B7600E2C7CA /* LocationManager.swift */,
+				5EEF20B82745476000E2C7CA /* UserDefaultsManager.swift */,
 				5E40442627464BA000467D0A /* NotificationMananger.swift */,
 				5E40442827465E1100467D0A /* UserNotificationMananger.swift */,
 			);

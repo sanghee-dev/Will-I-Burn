@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,19 +18,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="aaG-hJ-YM5">
-                                <rect key="frame" x="20" y="44" width="84" height="50.5"/>
+                                <rect key="frame" x="20" y="44" width="88.5" height="53.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pale / Light" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J2Y-Za-DXc">
-                                        <rect key="frame" x="0.0" y="0.0" width="84" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pale / Light" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J2Y-Za-DXc">
+                                        <rect key="frame" x="0.0" y="0.0" width="88.5" height="21.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Pg-IN-RuD">
-                                        <rect key="frame" x="0.0" y="20.5" width="53" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Pg-IN-RuD">
+                                        <rect key="frame" x="0.0" y="21.5" width="57" height="32"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="tintColor" name="AccentColor"/>
                                         <state key="normal" title="Change"/>
                                         <connections>
-                                            <action selector="changeSkinBtnTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ViG-A2-ir3"/>
+                                            <action selector="skinButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mZM-t5-hU7"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -43,7 +46,7 @@
                                     </activityIndicatorView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agP-H4-aLl">
                                         <rect key="frame" x="207" y="60" width="0.0" height="0.0"/>
-                                        <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="100"/>
+                                        <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="120"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -56,38 +59,45 @@
                                     <constraint firstAttribute="height" constant="120" id="tNJ-kI-2Wa"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydf-0B-h65">
-                                <rect key="frame" x="160.5" y="503.5" width="93" height="30"/>
-                                <state key="normal" title="Set Reminder"/>
-                                <connections>
-                                    <action selector="setReminderBtnTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VJB-Ur-j7v"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="minutes until you burn" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YdD-2W-4Y1">
-                                <rect key="frame" x="122.5" y="479" width="169" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="20E-ZL-qE4">
+                                <rect key="frame" x="118" y="479" width="178" height="57.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="minutes until you burn" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YdD-2W-4Y1">
+                                        <rect key="frame" x="0.0" y="0.0" width="178" height="21.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydf-0B-h65">
+                                        <rect key="frame" x="40" y="25.5" width="98" height="32"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="tintColor" name="AccentColor"/>
+                                        <state key="normal" title="Set Reminder"/>
+                                        <connections>
+                                            <action selector="reminderButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vcf-dR-OUP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="YdD-2W-4Y1" firstAttribute="top" secondItem="2jx-gG-wwr" secondAttribute="bottom" constant="16" id="44Q-WF-U0B"/>
-                            <constraint firstItem="ydf-0B-h65" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="6QB-ch-5J5"/>
                             <constraint firstItem="2jx-gG-wwr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9ST-4z-fVf"/>
                             <constraint firstItem="aaG-hJ-YM5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="PkC-AO-Ndq"/>
+                            <constraint firstItem="20E-ZL-qE4" firstAttribute="top" secondItem="2jx-gG-wwr" secondAttribute="bottom" constant="16" id="QLd-f2-pA8"/>
                             <constraint firstItem="2jx-gG-wwr" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-50" id="c6s-jP-86W"/>
-                            <constraint firstItem="ydf-0B-h65" firstAttribute="top" secondItem="YdD-2W-4Y1" secondAttribute="bottom" constant="4" id="iBy-Kq-iF6"/>
-                            <constraint firstItem="YdD-2W-4Y1" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="iDR-E0-anl"/>
+                            <constraint firstItem="20E-ZL-qE4" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="iQB-14-vUs"/>
                             <constraint firstItem="aaG-hJ-YM5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="mUO-n1-GXn"/>
                             <constraint firstItem="2jx-gG-wwr" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="xoy-r9-vuf"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="GSR-9a-gYk" id="Ded-OL-AuY"/>
-                        <outlet property="minutesLabel" destination="agP-H4-aLl" id="iNz-my-cwv"/>
-                        <outlet property="setReminderBtn" destination="ydf-0B-h65" id="TvC-Oj-bwP"/>
+                        <outlet property="burnTimeLabel" destination="agP-H4-aLl" id="iUs-GU-7Gj"/>
+                        <outlet property="minutesSentenceLabel" destination="YdD-2W-4Y1" id="PvE-Xh-Lpq"/>
+                        <outlet property="reminderButton" destination="ydf-0B-h65" id="nKR-bc-2tL"/>
+                        <outlet property="skinTypeButton" destination="7Pg-IN-RuD" id="wEx-v3-bYZ"/>
                         <outlet property="skinTypeLabel" destination="J2Y-Za-DXc" id="HdI-DU-Cfi"/>
                     </connections>
                 </viewController>
@@ -96,4 +106,9 @@
             <point key="canvasLocation" x="86.956521739130437" y="45.535714285714285"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="AccentColor">
+            <color red="0.21161794354838709" green="0.72149699926376343" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
