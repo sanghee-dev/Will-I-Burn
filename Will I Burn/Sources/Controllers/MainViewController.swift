@@ -37,6 +37,7 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureLocation()
+        configureSkinLabel()
     }
 }
 
@@ -81,6 +82,11 @@ private extension MainViewController {
     func reminderButtonTapped() {
         UserNotificationMananger.shared.requestNotification(after: burnTime)
         showAlert("Reminder", "We will remind you after \(burnTime) minutes!")
+    }
+
+    func configureSkinLabel() {
+        skinColorView.backgroundColor = skin.color
+        skinTypeLabel.text = skin.type.rawValue
     }
 
     func updateUI() {
