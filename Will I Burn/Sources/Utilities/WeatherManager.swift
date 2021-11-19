@@ -16,22 +16,22 @@ final class WeatherManager {
         let baseUrl = "https://api.weatherbit.io/v2.0/current?"
         let key = "&key=83b573f898c44511bc811d7c795d29d9"
         let params = "&lat=\(coordinate.latitude)&lon=\(coordinate.longitude)"
-        
+
         return baseUrl + params + key
     }
-    
+
     private init() {}
 }
 
 extension WeatherManager {
     func getWeatherUV(_ coordinate: CLLocationCoordinate2D, _ completion: @escaping (Result<Double, Error>) -> Void) {
         let url = getWeatherUrl(coordinate)
-        
+
         AF.request(url).responseJSON { response in
             switch response.result {
             case .success(let value):
                 if let JSON = value as? [String: Any] {
-                    let data = JSON["data"] as? Array<Any>
+                    let data = JSON["data"] as? [Any]
                     let values = data?[0]
                     if let value = values as? [String: Any] {
                         if let uv = value["uv"] as? Double {

@@ -9,17 +9,17 @@ import UIKit
 import CoreLocation
 
 final class MainViewController: UIViewController {
-    
+
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var skinTypeLabel: UILabel!
     @IBOutlet weak var skinTypeButton: UIButton!
     @IBOutlet weak var burnTimeLabel: UILabel!
     @IBOutlet weak var minutesSentenceLabel: UILabel!
     @IBOutlet weak var reminderButton: UIButton!
-    
+
     @IBAction func skinButtonTapped(_ sender: UIButton) { skinButtonTapped() }
     @IBAction func reminderButtonTapped(_ sender: UIButton) { reminderButtonTapped() }
-    
+
     private var burnTime: Int = 10 {
         didSet {
             updateUI()
@@ -52,13 +52,13 @@ extension MainViewController {
         LocationManager.shared.startLocationAuthorization()
         NotificationMananger.shared.center.addObserver(self, selector: #selector(locationSuccess(_:)), name: Notification.Name("coordinate"), object: nil)
     }
-    
+
     @objc func locationSuccess(_ notification: NSNotification) {
         if let coordinate = notification.userInfo?["coordinate"] as? CLLocationCoordinate2D {
             self.coordinate = coordinate
         }
     }
-    
+
     func getWeatherData() {
         WeatherManager.shared.getWeatherUV(coordinate) { result in
             switch result {
@@ -67,7 +67,7 @@ extension MainViewController {
             }
         }
     }
-    
+
     func calculateBurnTime() {
         burnTime = Int(BurnTimeManager.shared.calcBurnTime(skinType, uvIndex))
     }
@@ -84,7 +84,7 @@ private extension MainViewController {
         }
         self.present(alert, animated: true, completion: nil)
     }
-    
+
     func reminderButtonTapped() {
         UserNotificationMananger.shared.requestNotification(after: burnTime)
         showAlert("Reminder", "We will remind you after \(burnTime) minutes!")
@@ -97,12 +97,12 @@ private extension MainViewController {
         skinTypeLabel.text = skinType.rawValue
         burnTimeLabel.text = String(burnTime)
         minutesSentenceLabel.alpha = 1
-        
+
         skinTypeButton.isEnabled = true
         reminderButton.isEnabled = true
         activityIndicator.stopAnimating()
     }
-    
+
     func showAlert(_ title: String, _ message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(.init(title: "OK", style: .default, handler: nil))

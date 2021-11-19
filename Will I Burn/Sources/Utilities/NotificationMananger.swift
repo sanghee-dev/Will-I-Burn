@@ -10,10 +10,10 @@ import Foundation
 final class NotificationMananger {
     static let shared = NotificationMananger()
     let center = NotificationCenter.default
-    
+
     private init() {}
-    
-    func postNotification(_ name: String, _ userInfo: [AnyHashable : Any]? = nil) {
+
+    func postNotification(_ name: String, _ userInfo: [String: Any]? = nil) {
         center.post(name: NSNotification.Name(rawValue: name), object: nil, userInfo: userInfo)
     }
 }

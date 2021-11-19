@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		586203B2E31349DA28C1FEE4 /* Pods_Will_I_Burn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41ED139AF63F789DED691A65 /* Pods_Will_I_Burn.framework */; };
 		5E2BFB3E26A57B6800E93276 /* BurnTimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2BFB3D26A57B6800E93276 /* BurnTimeManager.swift */; };
+		5E3632E527477D3D00444343 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 5E3632E427477D3D00444343 /* .swiftlint.yml */; };
 		5E40442727464BA000467D0A /* NotificationMananger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E40442627464BA000467D0A /* NotificationMananger.swift */; };
 		5E40442927465E1100467D0A /* UserNotificationMananger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E40442827465E1100467D0A /* UserNotificationMananger.swift */; };
 		5EDF61E326A176E00093AA53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDF61E226A176E00093AA53 /* AppDelegate.swift */; };
@@ -28,6 +29,7 @@
 		03FBF9F885322988D7DEC15C /* Pods-Will I Burn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Will I Burn.debug.xcconfig"; path = "Target Support Files/Pods-Will I Burn/Pods-Will I Burn.debug.xcconfig"; sourceTree = "<group>"; };
 		41ED139AF63F789DED691A65 /* Pods_Will_I_Burn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Will_I_Burn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E2BFB3D26A57B6800E93276 /* BurnTimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurnTimeManager.swift; sourceTree = "<group>"; };
+		5E3632E427477D3D00444343 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		5E40442627464BA000467D0A /* NotificationMananger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationMananger.swift; sourceTree = "<group>"; };
 		5E40442827465E1100467D0A /* UserNotificationMananger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationMananger.swift; sourceTree = "<group>"; };
 		5EDF61DF26A176E00093AA53 /* Will I Burn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Will I Burn.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,6 +89,7 @@
 		5EDF61D626A176E00093AA53 = {
 			isa = PBXGroup;
 			children = (
+				5E3632E427477D3D00444343 /* .swiftlint.yml */,
 				5EDF61E126A176E00093AA53 /* Will I Burn */,
 				5EDF61E026A176E00093AA53 /* Products */,
 				E3DA2FA0C28A6CE16388D8E1 /* Pods */,
@@ -183,6 +186,7 @@
 				5EDF61DC26A176E00093AA53 /* Frameworks */,
 				5EDF61DD26A176E00093AA53 /* Resources */,
 				209A7555A40DDE3776076D4E /* [CP] Embed Pods Frameworks */,
+				5E3632E127477C4A00444343 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -230,6 +234,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E3632E527477D3D00444343 /* .swiftlint.yml in Resources */,
 				5EDF61EF26A176E20093AA53 /* LaunchScreen.storyboard in Resources */,
 				5EDF61EC26A176E20093AA53 /* Assets.xcassets in Resources */,
 				5EDF61EA26A176E00093AA53 /* Main.storyboard in Resources */,
@@ -255,6 +260,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Will I Burn/Pods-Will I Burn-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		5E3632E127477C4A00444343 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 		D711273B8D6212CC84047291 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

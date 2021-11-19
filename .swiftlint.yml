@@ -1,0 +1,20 @@
+included:
+
+excluded:
+  - Pods
+  - Will I Burn/Sources/Systems/AppDelegate.swift
+  - Will I Burn/Sources/Systems/SceneDelegate.swift
+
+function_body_length:
+  warning: 300
+  error: 500
+
+line_length:
+  warning: 200
+  error: 300
+  ignores_function_declarations: true
+  ignores_comments: true
+  ignores_urls: true
+
+identifier_name:
+  min_length: 2

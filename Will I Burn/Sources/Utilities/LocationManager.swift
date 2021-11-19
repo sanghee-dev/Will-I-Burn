@@ -11,25 +11,25 @@ import CoreLocation
 final class LocationManager: NSObject, CLLocationManagerDelegate {
     static let shared = LocationManager()
     let manager = CLLocationManager()
-    
+
     private override init() {}
-    
+
     func startLocationAuthorization() {
         if CLLocationManager.locationServicesEnabled() {
             manager.delegate = self
             checkAuthorizationStatus()
         }
     }
-    
+
     func checkAuthorizationStatus() {
         var status: CLAuthorizationStatus
-        
+
         if #available(iOS 14.0, *) {
             status = CLLocationManager().authorizationStatus
         } else {
             status = CLLocationManager.authorizationStatus()
         }
-        
+
         switch status {
         case .authorizedAlways, .authorized, .authorizedWhenInUse: manager.startUpdatingLocation()
         case .notDetermined: manager.requestWhenInUseAuthorization()
@@ -44,11 +44,11 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
             manager.stopUpdatingLocation()
         }
     }
-    
+
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         checkAuthorizationStatus()
     }
-    
+
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         manager.stopUpdatingLocation()
     }
