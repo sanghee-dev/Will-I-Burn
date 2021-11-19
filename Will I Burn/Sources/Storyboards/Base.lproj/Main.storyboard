@@ -18,14 +18,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="aaG-hJ-YM5">
-                                <rect key="frame" x="20" y="44" width="88.5" height="53.5"/>
+                                <rect key="frame" x="20" y="44" width="104.5" height="53.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pale / Light" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J2Y-Za-DXc">
-                                        <rect key="frame" x="0.0" y="0.0" width="88.5" height="21.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ayZ-Jl-w9O">
+                                        <rect key="frame" x="0.0" y="0.0" width="104.5" height="21.5"/>
+                                        <subviews>
+                                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dwU-BT-wjn">
+                                                <rect key="frame" x="0.0" y="5" width="12" height="12"/>
+                                                <color key="backgroundColor" name="Pale"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="12" id="PLR-fi-ALN"/>
+                                                    <constraint firstAttribute="width" constant="12" id="XeK-77-eDY"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="6"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pale / Light" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J2Y-Za-DXc">
+                                                <rect key="frame" x="16" y="0.0" width="88.5" height="21.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Pg-IN-RuD">
                                         <rect key="frame" x="0.0" y="21.5" width="57" height="32"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -59,8 +83,8 @@
                                     <constraint firstAttribute="height" constant="120" id="tNJ-kI-2Wa"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="20E-ZL-qE4">
-                                <rect key="frame" x="118" y="479" width="178" height="57.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="20E-ZL-qE4">
+                                <rect key="frame" x="118" y="479" width="178" height="53.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="minutes until you burn" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YdD-2W-4Y1">
                                         <rect key="frame" x="0.0" y="0.0" width="178" height="21.5"/>
@@ -69,7 +93,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydf-0B-h65">
-                                        <rect key="frame" x="40" y="25.5" width="98" height="32"/>
+                                        <rect key="frame" x="40" y="21.5" width="98" height="32"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="tintColor" name="AccentColor"/>
                                         <state key="normal" title="Set Reminder"/>
@@ -97,6 +121,7 @@
                         <outlet property="burnTimeLabel" destination="agP-H4-aLl" id="iUs-GU-7Gj"/>
                         <outlet property="minutesSentenceLabel" destination="YdD-2W-4Y1" id="PvE-Xh-Lpq"/>
                         <outlet property="reminderButton" destination="ydf-0B-h65" id="nKR-bc-2tL"/>
+                        <outlet property="skinColorView" destination="dwU-BT-wjn" id="F2x-0H-xlJ"/>
                         <outlet property="skinTypeButton" destination="7Pg-IN-RuD" id="wEx-v3-bYZ"/>
                         <outlet property="skinTypeLabel" destination="J2Y-Za-DXc" id="HdI-DU-Cfi"/>
                     </connections>
@@ -109,6 +134,9 @@
     <resources>
         <namedColor name="AccentColor">
             <color red="0.21199999749660492" green="0.72100001573562622" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Pale">
+            <color red="1" green="0.95199999999999996" blue="0.91700000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

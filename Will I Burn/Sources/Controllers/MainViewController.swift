@@ -10,9 +10,10 @@ import CoreLocation
 
 final class MainViewController: UIViewController {
 
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var skinColorView: UIView!
     @IBOutlet weak var skinTypeLabel: UILabel!
     @IBOutlet weak var skinTypeButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var burnTimeLabel: UILabel!
     @IBOutlet weak var minutesSentenceLabel: UILabel!
     @IBOutlet weak var reminderButton: UIButton!
@@ -20,25 +21,17 @@ final class MainViewController: UIViewController {
     @IBAction func skinButtonTapped(_ sender: UIButton) { skinButtonTapped() }
     @IBAction func reminderButtonTapped(_ sender: UIButton) { reminderButtonTapped() }
 
-    private var burnTime: Int = 10 {
-        didSet {
-            updateUI()
-        }
-    }
-    private var coordinate: CLLocationCoordinate2D = .init() {
-        didSet {
-            getWeatherData()
-        }
+    private var skin: Skin = UserDefaultsManager.shared.getSkin() {
+        didSet { calculateBurnTime() }
     }
     private var uvIndex: Double = 10 {
-        didSet {
-            calculateBurnTime()
-        }
+        didSet { calculateBurnTime() }
     }
-    private var skinType: SkinType = UserDefaultsManager.shared.getSkinType() {
-        didSet {
-            calculateBurnTime()
-        }
+    private var coordinate: CLLocationCoordinate2D = .init() {
+        didSet { getWeatherData() }
+    }
+    private var burnTime: Int = 0 {
+        didSet { updateUI() }
     }
 
     override func viewDidLoad() {
@@ -47,7 +40,7 @@ final class MainViewController: UIViewController {
     }
 }
 
-extension MainViewController {
+private extension MainViewController {
     func configureLocation() {
         LocationManager.shared.startLocationAuthorization()
         NotificationMananger.shared.center.addObserver(self, selector: #selector(locationSuccess(_:)), name: Notification.Name("coordinate"), object: nil)
@@ -69,17 +62,17 @@ extension MainViewController {
     }
 
     func calculateBurnTime() {
-        burnTime = Int(BurnTimeManager.shared.calcBurnTime(skinType, uvIndex))
+        burnTime = Int(BurnTimeManager.shared.calcBurnTime(skin.type, uvIndex))
     }
 }
 
 private extension MainViewController {
     func skinButtonTapped() {
-        let alert = UIAlertController(title: "Pink one", message: "Please choose your skin type", preferredStyle: .actionSheet)
-        for skinType in SkinType.allCases {
-            alert.addAction(UIAlertAction(title: skinType.rawValue, style: .default, handler: { [weak self] _ in
-                self?.skinType = skinType
-                UserDefaultsManager.shared.setSkinType(skinType)
+        let alert = UIAlertController(title: "Skin Type", message: "Please choose your skin type", preferredStyle: .actionSheet)
+        for type in SkinType.allCases {
+            alert.addAction(UIAlertAction(title: type.rawValue, style: .default, handler: { [weak self] _ in
+                self?.skin = Skin(type: type)
+                UserDefaultsManager.shared.setSkinType(type)
             }))
         }
         self.present(alert, animated: true, completion: nil)
@@ -89,14 +82,15 @@ private extension MainViewController {
         UserNotificationMananger.shared.requestNotification(after: burnTime)
         showAlert("Reminder", "We will remind you after \(burnTime) minutes!")
     }
-}
 
-private extension MainViewController {
     func updateUI() {
+        skinColorView.alpha = 1
         skinTypeLabel.alpha = 1
-        skinTypeLabel.text = skinType.rawValue
-        burnTimeLabel.text = String(burnTime)
         minutesSentenceLabel.alpha = 1
+
+        skinColorView.backgroundColor = skin.color
+        skinTypeLabel.text = skin.type.rawValue
+        burnTimeLabel.text = String(burnTime)
 
         skinTypeButton.isEnabled = true
         reminderButton.isEnabled = true

@@ -10,6 +10,11 @@
 		586203B2E31349DA28C1FEE4 /* Pods_Will_I_Burn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41ED139AF63F789DED691A65 /* Pods_Will_I_Burn.framework */; };
 		5E2BFB3E26A57B6800E93276 /* BurnTimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2BFB3D26A57B6800E93276 /* BurnTimeManager.swift */; };
 		5E3632E527477D3D00444343 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 5E3632E427477D3D00444343 /* .swiftlint.yml */; };
+		5E3632E827479AB100444343 /* UIView+IBInspectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3632E727479AB100444343 /* UIView+IBInspectable.swift */; };
+		5E3632F22747AB8300444343 /* UIColor+SkinColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3632F12747AB8300444343 /* UIColor+SkinColor.swift */; };
+		5E3632F42747CE9E00444343 /* Skin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3632F32747CE9E00444343 /* Skin.swift */; };
+		5E3632F62747CF1A00444343 /* SkinType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3632F52747CF1A00444343 /* SkinType.swift */; };
+		5E3632F82747CF7800444343 /* SkinTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3632F72747CF7800444343 /* SkinTime.swift */; };
 		5E40442727464BA000467D0A /* NotificationMananger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E40442627464BA000467D0A /* NotificationMananger.swift */; };
 		5E40442927465E1100467D0A /* UserNotificationMananger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E40442827465E1100467D0A /* UserNotificationMananger.swift */; };
 		5EDF61E326A176E00093AA53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDF61E226A176E00093AA53 /* AppDelegate.swift */; };
@@ -18,8 +23,6 @@
 		5EDF61EA26A176E00093AA53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EDF61E826A176E00093AA53 /* Main.storyboard */; };
 		5EDF61EC26A176E20093AA53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EDF61EB26A176E20093AA53 /* Assets.xcassets */; };
 		5EDF61EF26A176E20093AA53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EDF61ED26A176E20093AA53 /* LaunchScreen.storyboard */; };
-		5EDF61F726A178890093AA53 /* SkinType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDF61F626A178890093AA53 /* SkinType.swift */; };
-		5EEF20B72745450A00E2C7CA /* SkinTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEF20B62745450A00E2C7CA /* SkinTime.swift */; };
 		5EEF20B92745476000E2C7CA /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEF20B82745476000E2C7CA /* UserDefaultsManager.swift */; };
 		5EEF20BB274553F000E2C7CA /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEF20BA274553EF00E2C7CA /* WeatherManager.swift */; };
 		5EEF20C127456B7600E2C7CA /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEF20C027456B7600E2C7CA /* LocationManager.swift */; };
@@ -30,6 +33,11 @@
 		41ED139AF63F789DED691A65 /* Pods_Will_I_Burn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Will_I_Burn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E2BFB3D26A57B6800E93276 /* BurnTimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurnTimeManager.swift; sourceTree = "<group>"; };
 		5E3632E427477D3D00444343 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		5E3632E727479AB100444343 /* UIView+IBInspectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+IBInspectable.swift"; sourceTree = "<group>"; };
+		5E3632F12747AB8300444343 /* UIColor+SkinColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+SkinColor.swift"; sourceTree = "<group>"; };
+		5E3632F32747CE9E00444343 /* Skin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skin.swift; sourceTree = "<group>"; };
+		5E3632F52747CF1A00444343 /* SkinType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinType.swift; sourceTree = "<group>"; };
+		5E3632F72747CF7800444343 /* SkinTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinTime.swift; sourceTree = "<group>"; };
 		5E40442627464BA000467D0A /* NotificationMananger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationMananger.swift; sourceTree = "<group>"; };
 		5E40442827465E1100467D0A /* UserNotificationMananger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationMananger.swift; sourceTree = "<group>"; };
 		5EDF61DF26A176E00093AA53 /* Will I Burn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Will I Burn.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,8 +48,6 @@
 		5EDF61EB26A176E20093AA53 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5EDF61EE26A176E20093AA53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5EDF61F026A176E20093AA53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5EDF61F626A178890093AA53 /* SkinType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinType.swift; sourceTree = "<group>"; };
-		5EEF20B62745450A00E2C7CA /* SkinTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinTime.swift; sourceTree = "<group>"; };
 		5EEF20B82745476000E2C7CA /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		5EEF20BA274553EF00E2C7CA /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
 		5EEF20C027456B7600E2C7CA /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -63,8 +69,9 @@
 		5E16BC1326AFF88F00808D86 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5EDF61F626A178890093AA53 /* SkinType.swift */,
-				5EEF20B62745450A00E2C7CA /* SkinTime.swift */,
+				5E3632F32747CE9E00444343 /* Skin.swift */,
+				5E3632F52747CF1A00444343 /* SkinType.swift */,
+				5E3632F72747CF7800444343 /* SkinTime.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -84,6 +91,15 @@
 				5EDF61E626A176E00093AA53 /* MainViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5E3632E627479A9900444343 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5E3632E727479AB100444343 /* UIView+IBInspectable.swift */,
+				5E3632F12747AB8300444343 /* UIColor+SkinColor.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		5EDF61D626A176E00093AA53 = {
@@ -143,6 +159,7 @@
 				5E16BC1326AFF88F00808D86 /* Models */,
 				5E16BC1526AFF8EC00808D86 /* Controllers */,
 				5EEF208C274533A000E2C7CA /* Utilities */,
+				5E3632E627479A9900444343 /* Extensions */,
 				5EEF20B527453DD400E2C7CA /* Systems */,
 			);
 			path = Sources;
@@ -307,16 +324,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5EDF61F726A178890093AA53 /* SkinType.swift in Sources */,
 				5EDF61E726A176E00093AA53 /* MainViewController.swift in Sources */,
+				5E3632F62747CF1A00444343 /* SkinType.swift in Sources */,
 				5EDF61E326A176E00093AA53 /* AppDelegate.swift in Sources */,
 				5E40442727464BA000467D0A /* NotificationMananger.swift in Sources */,
+				5E3632F22747AB8300444343 /* UIColor+SkinColor.swift in Sources */,
+				5E3632F82747CF7800444343 /* SkinTime.swift in Sources */,
 				5EEF20B92745476000E2C7CA /* UserDefaultsManager.swift in Sources */,
 				5E2BFB3E26A57B6800E93276 /* BurnTimeManager.swift in Sources */,
+				5E3632F42747CE9E00444343 /* Skin.swift in Sources */,
+				5E3632E827479AB100444343 /* UIView+IBInspectable.swift in Sources */,
 				5E40442927465E1100467D0A /* UserNotificationMananger.swift in Sources */,
 				5EEF20BB274553F000E2C7CA /* WeatherManager.swift in Sources */,
 				5EDF61E526A176E00093AA53 /* SceneDelegate.swift in Sources */,
-				5EEF20B72745450A00E2C7CA /* SkinTime.swift in Sources */,
 				5EEF20C127456B7600E2C7CA /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

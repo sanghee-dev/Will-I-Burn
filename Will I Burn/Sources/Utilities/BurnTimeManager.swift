@@ -9,21 +9,20 @@ import Foundation
 
 final class BurnTimeManager {
     static let shared = BurnTimeManager()
-    var uvIndex: Double = 10
 
     private init() {}
 }
 
 extension BurnTimeManager {
     func calcBurnTime(_ skinType: SkinType, _ uvIndex: Double) -> Int {
-        self.uvIndex = (uvIndex > 0.5) ? uvIndex : 0.5
+        let uvIndex = (uvIndex > 0.5) ? uvIndex : 0.5
         switch skinType {
-        case .type1: return Int(SkinTime.time1.rawValue / self.uvIndex)
-        case .type2: return Int(SkinTime.time2.rawValue / self.uvIndex)
-        case .type3: return Int(SkinTime.time3.rawValue / self.uvIndex)
-        case .type4: return Int(SkinTime.time4.rawValue / self.uvIndex)
-        case .type5: return Int(SkinTime.time5.rawValue / self.uvIndex)
-        case .type6: return Int(SkinTime.time6.rawValue / self.uvIndex)
+        case .pale: return Int(SkinTime.pale.rawValue / uvIndex)
+        case .fair: return Int(SkinTime.fair.rawValue / uvIndex)
+        case .medium: return Int(SkinTime.medium.rawValue / uvIndex)
+        case .olive: return Int(SkinTime.olive.rawValue / uvIndex)
+        case .brown: return Int(SkinTime.brown.rawValue / uvIndex)
+        case .dark: return Int(SkinTime.dark.rawValue / uvIndex)
         }
     }
 }

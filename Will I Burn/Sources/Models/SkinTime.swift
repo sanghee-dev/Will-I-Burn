@@ -2,16 +2,16 @@
 //  SkinTime.swift
 //  Will I Burn
 //
-//  Created by leeesangheee on 2021/11/17.
+//  Created by leeesangheee on 2021/11/19.
 //
 
 import Foundation
 
-enum SkinTime: Double, CaseIterable {
-    case time1 = 67
-    case time2 = 100
-    case time3 = 200
-    case time4 = 300
-    case time5 = 400
-    case time6 = 500
+enum SkinTime: Double {
+    case pale = 67
+    case fair = 100
+    case medium = 200
+    case olive = 300
+    case brown = 400
+    case dark = 500
 }

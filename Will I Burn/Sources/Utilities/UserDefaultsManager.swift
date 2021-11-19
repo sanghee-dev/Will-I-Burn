@@ -6,21 +6,22 @@
 //
 
 import Foundation
+import UIKit
 
 final class UserDefaultsManager {
     static let shared = UserDefaultsManager()
-    let defaults = UserDefaults.standard
-    let SKINTYPE = "skinType"
+    private let defaults = UserDefaults.standard
+    private let SKINTYPE = "skinType"
 
     private init() {}
 }
 
 extension UserDefaultsManager {
-    func getSkinType() -> SkinType {
-        if let type = defaults.string(forKey: SKINTYPE), let skinType = SkinType(rawValue: type) {
-            return skinType
+    func getSkin() -> Skin {
+        if let rawValue = defaults.string(forKey: SKINTYPE), let type = SkinType(rawValue: rawValue) {
+            return Skin(type: type)
         }
-        return SkinType.type1
+        return Skin(type: .pale)
     }
 
     func setSkinType(_ type: SkinType) {
