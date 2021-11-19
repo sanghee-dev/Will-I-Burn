@@ -7,7 +7,7 @@
 
 import Foundation
 
-class BurnTimeManager {
+final class BurnTimeManager {
     static let shared = BurnTimeManager()
     var uvIndex: Double = 10
     

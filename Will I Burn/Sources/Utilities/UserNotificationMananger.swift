@@ -8,7 +8,7 @@
 import Foundation
 import UserNotifications
 
-class UserNotificationMananger {
+final class UserNotificationMananger {
     static let shared = UserNotificationMananger()
     let center = UNUserNotificationCenter.current()
     

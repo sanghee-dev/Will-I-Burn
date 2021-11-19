@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 import CoreLocation
 
-class WeatherManager {
+final class WeatherManager {
     static let shared = WeatherManager()
 
     func getWeatherUrl(_ coordinate: CLLocationCoordinate2D) -> String {

@@ -8,7 +8,7 @@
 import UIKit
 import CoreLocation
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var skinTypeLabel: UILabel!

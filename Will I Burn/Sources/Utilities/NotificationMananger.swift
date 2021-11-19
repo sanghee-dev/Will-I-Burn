@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NotificationMananger {
+final class NotificationMananger {
     static let shared = NotificationMananger()
     let center = NotificationCenter.default
     

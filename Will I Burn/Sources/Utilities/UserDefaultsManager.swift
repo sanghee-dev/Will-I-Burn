@@ -7,7 +7,7 @@
 
 import Foundation
 
-class UserDefaultsManager {
+final class UserDefaultsManager {
     static let shared = UserDefaultsManager()
     let defaults = UserDefaults.standard
     let SKIN_TYPE_KEY = "skinType"
