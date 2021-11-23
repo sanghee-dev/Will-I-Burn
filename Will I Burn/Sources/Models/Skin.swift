@@ -7,33 +7,25 @@
 
 import UIKit
 
-struct Skin {
+class Skin {
     let type: SkinType
     let time: SkinTime
     let color: UIColor
 
-    init(type: SkinType) {
+    init(type: SkinType, time: SkinTime, color: UIColor) {
         self.type = type
+        self.time = time
+        self.color = color
+    }
 
+    convenience init(type: SkinType) {
         switch type {
-        case .pale:
-            time = .pale
-            color = .paleSkin
-        case .fair:
-            time = .fair
-            color = .fairSkin
-        case .medium:
-            time = .medium
-            color = .mediumSkin
-        case .olive:
-            time = .olive
-            color = .oliveBrownSkin
-        case .brown:
-            time = .brown
-            color = .brownSkin
-        case .dark:
-            time = .dark
-            color = .darkBrownSkin
+        case .pale: self.init(type: type, time: .pale, color: .paleSkin)
+        case .fair: self.init(type: type, time: .fair, color: .fairSkin)
+        case .medium: self.init(type: type, time: .medium, color: .mediumSkin)
+        case .olive: self.init(type: type, time: .olive, color: .oliveSkin)
+        case .brown: self.init(type: type, time: .brown, color: .brownSkin)
+        case .dark: self.init(type: type, time: .dark, color: .darkSkin)
         }
     }
 }

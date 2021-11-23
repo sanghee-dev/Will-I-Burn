@@ -20,7 +20,7 @@ extension UIColor {
         UIColor(red: 225/255, green: 189/255, blue: 167/255, alpha: 1)
     }
 
-    static var oliveBrownSkin: UIColor {
+    static var oliveSkin: UIColor {
         UIColor(red: 161/255, green: 121/255, blue: 86/255, alpha: 1)
     }
 
@@ -28,7 +28,7 @@ extension UIColor {
         UIColor(red: 101/255, green: 66/255, blue: 46/255, alpha: 1)
     }
 
-    static var darkBrownSkin: UIColor {
+    static var darkSkin: UIColor {
         UIColor(red: 49/255, green: 39/255, blue: 38/255, alpha: 1)
     }
 }
