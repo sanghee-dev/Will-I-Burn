@@ -7,6 +7,8 @@
 
 import UIKit
 import CoreLocation
+import Combine
+import CombineCocoa
 
 final class MainViewController: UIViewController {
 
@@ -17,9 +19,6 @@ final class MainViewController: UIViewController {
     @IBOutlet weak var burnTimeLabel: UILabel!
     @IBOutlet weak var minutesSentenceLabel: UILabel!
     @IBOutlet weak var reminderButton: UIButton!
-
-    @IBAction func skinButtonTapped(_ sender: UIButton) { skinButtonTapped() }
-    @IBAction func reminderButtonTapped(_ sender: UIButton) { reminderButtonTapped() }
 
     private var skin: Skin = UserDefaultsManager.shared.getSkin() {
         didSet { calculateBurnTime() }
@@ -34,10 +33,39 @@ final class MainViewController: UIViewController {
         didSet { updateUI() }
     }
 
+    private var cancellables = Set<AnyCancellable>()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureLocation()
         configureSkinLabel()
+        setPublisher()
+    }
+}
+
+private extension MainViewController {
+    func setPublisher() {
+        skinTypeButton.tapPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                guard let self = self else { return }
+                let alert = UIAlertController(title: "Skin Type", message: "Please choose your skin type", preferredStyle: .actionSheet)
+                for type in SkinType.allCases {
+                    alert.addAction(UIAlertAction(title: type.rawValue, style: .default, handler: { [weak self] _ in
+                        self?.skin = Skin(type: type)
+                        UserDefaultsManager.shared.setSkinType(type)
+                    }))
+                }
+                self.present(alert, animated: true, completion: nil)
+            }.store(in: &cancellables)
+
+        reminderButton.tapPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                guard let self = self else { return }
+                UserNotificationMananger.shared.requestNotification(after: self.burnTime)
+                self.showAlert("Reminder", "We will remind you after \(self.burnTime) minutes!")
+            }.store(in: &cancellables)
     }
 }
 
@@ -68,22 +96,6 @@ private extension MainViewController {
 }
 
 private extension MainViewController {
-    func skinButtonTapped() {
-        let alert = UIAlertController(title: "Skin Type", message: "Please choose your skin type", preferredStyle: .actionSheet)
-        for type in SkinType.allCases {
-            alert.addAction(UIAlertAction(title: type.rawValue, style: .default, handler: { [weak self] _ in
-                self?.skin = Skin(type: type)
-                UserDefaultsManager.shared.setSkinType(type)
-            }))
-        }
-        self.present(alert, animated: true, completion: nil)
-    }
-
-    func reminderButtonTapped() {
-        UserNotificationMananger.shared.requestNotification(after: burnTime)
-        showAlert("Reminder", "We will remind you after \(burnTime) minutes!")
-    }
-
     func configureSkinLabel() {
         skinColorView.backgroundColor = skin.color
         skinTypeLabel.text = skin.type.rawValue
@@ -109,3 +121,4 @@ private extension MainViewController {
         self.present(alert, animated: true, completion: nil)
     }
 }
+

@@ -8,5 +8,6 @@ target 'Will I Burn' do
   # Pods for Will I Burn
   pod 'Alamofire'
   pod 'SwiftLint'
+  pod 'CombineCocoa'
 
 end

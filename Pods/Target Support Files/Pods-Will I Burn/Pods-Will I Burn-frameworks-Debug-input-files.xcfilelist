@@ -1,2 +1,3 @@
 ${PODS_ROOT}/Target Support Files/Pods-Will I Burn/Pods-Will I Burn-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/CombineCocoa/CombineCocoa.framework

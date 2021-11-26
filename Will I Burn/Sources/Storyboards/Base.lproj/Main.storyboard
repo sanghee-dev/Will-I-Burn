@@ -55,9 +55,6 @@
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                         <color key="tintColor" name="AccentColor"/>
                                         <state key="normal" title="Change"/>
-                                        <connections>
-                                            <action selector="skinButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mZM-t5-hU7"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -97,9 +94,6 @@
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                         <color key="tintColor" name="AccentColor"/>
                                         <state key="normal" title="Set Reminder"/>
-                                        <connections>
-                                            <action selector="reminderButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vcf-dR-OUP"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
